@@ -1,0 +1,23 @@
+ * {
+     font-size: small;
+ }
+
+ p {
+     margin: 0;
+ }
+
+ .text-indent {
+     text-indent: 4rem;
+ }
+
+ .text-indent-0 {
+     text-indent: 0;
+ }
+
+ .text-justify {
+     text-align: justify;
+ }
+
+ .space-alpha {
+     letter-spacing: 5px;
+ }
