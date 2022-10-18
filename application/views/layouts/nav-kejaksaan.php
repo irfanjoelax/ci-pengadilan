@@ -1,0 +1,15 @@
+<li class="<?= ($active == 'penetapan_hs') ? 'active' : '' ?>">
+    <a href="<?= site_url('penetapan_hs') ?>">
+        <i class="fa fa-calendar"></i> <span>Penetapan Hari Sidang</span>
+    </a>
+</li>
+<li class="<?= ($active == 'penahanan_kpn') ? 'active' : '' ?>">
+    <a href="<?= site_url('penahanan_kpn') ?>">
+        <i class="fa fa-legal"></i> <span>Penahanan KPN</span>
+    </a>
+</li>
+<li class="<?= ($active == 'petikan_putusan') ? 'active' : '' ?>">
+    <a href="<?= site_url('petikan_putusan') ?>">
+        <i class="fa fa-file-text"></i> <span>Petikan Putusan</span>
+    </a>
+</li>

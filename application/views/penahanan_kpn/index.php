@@ -5,7 +5,7 @@
         <div class="box box-success">
             <?php if ($this->session->userdata('level_user') == 'admin') : ?>
                 <div class="box-header text-right">
-                    <a href="<?= site_url('penahanan_hakim/create') ?>" class="btn btn-success mb-3">
+                    <a href="<?= site_url('penahanan_kpn/create') ?>" class="btn btn-success mb-3">
                         Tambah Data
                     </a>
                 </div>
@@ -31,30 +31,29 @@
                                 <td class="text-center"><?= $row->status ?></td>
                                 <td class="text-center">
                                     <span class="label label-default">
+                                        <?= strtoupper(str_replace('_', ' ', $row->tujuan_kejaksaan)) ?>
+                                    </span> <br>
+                                    <span class="label label-default">
                                         <?= strtoupper(str_replace('_', ' ', $row->tujuan_lapas)) ?>
                                     </span>
                                 </td>
                                 <td class=" text-center">
-                                    <?php
-                                    $level_user = $this->session->userdata('level_user');
-                                    $level_array = [
-                                        'lapas_minahasa', 'rutan_minahasa_selatan', 'lapas_tomohon'
-                                    ];
-
-                                    if (in_array($level_user, $level_array)) : ?>
-                                        <?= button_print('penahanan_hakim/print/' . $row->id) ?>
+                                    <?php $level_user = $this->session->userdata('level_user'); ?>
+                                    <?php if ($level_user == 'panitera_pengganti' or $level_user == 'ketua_pn') : ?>
+                                        <?= button_show('penahanan_kpn/show/' . $row->id) ?>
                                     <?php endif; ?>
 
-                                    <?php if ($this->session->userdata('level_user') == 'panitera_pengganti') : ?>
-                                        <?= button_show('penahanan_hakim/show/' . $row->id) ?>
+                                    <?php if ($level_user == 'ketua_pn') : ?>
+                                        <?= button_show('penahanan_kpn/show/' . $row->id) ?>
+                                        <?= button_print('penahanan_kpn/print/' . $row->id) ?>
                                     <?php endif; ?>
 
-                                    <?= button_download('asset/penahanan-hakim/' . $row->file) ?>
-
-                                    <?php if ($this->session->userdata('level_user') == 'admin') : ?>
-                                        <?= button_edit('penahanan_hakim/edit/' . $row->id) ?>
-                                        <?= button_delete('penahanan_hakim/delete/' . $row->id) ?>
+                                    <?php if ($level_user == 'admin') : ?>
+                                        <?= button_edit('penahanan_kpn/edit/' . $row->id) ?>
+                                        <?= button_delete('penahanan_kpn/delete/' . $row->id) ?>
                                     <?php endif; ?>
+
+                                    <?= button_download('asset/penahanan-kpn/' . $row->file) ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

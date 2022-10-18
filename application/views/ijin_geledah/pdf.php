@@ -12,13 +12,8 @@
 
 <body>
     <div class="px-5 my-3">
-        <section class="text-end mb-3">
-            <div class="btn btn-outline-dark rounded-0 py-3 px-5">
-                PEN.7.1
-            </div>
-        </section>
         <section class="text-center mb-2">
-            <h5 class="fw-bold">PENETAPAN</h5>
+            <h5 class="fw-bold space-alpha">PENETAPAN</h5>
             <h6>Nomor: <?= $data->no_perkara ?></h6>
         </section>
         <section class="mb-3">
@@ -26,11 +21,11 @@
                 demi keadilan berdasarkan ketuhanan yang maha esa
             </p>
             <p class="text-indent">
-                Majelis Hakim Pengadilan Negeri Tondano;
+                Ketua Pengadilan Negeri Tondano;
             </p>
-            <p class="text-indent">
-                Membaca berkas perkara Nomor <?= $data->no_perkara ?> dalam perkara Terdakwa:
-            </p>
+            <div class="text-indent text-justify">
+                <?= $data->membaca ?>
+            </div>
             <table>
                 <tr class="text-indent">
                     <td width="27%" class="align-top">Nama Lengkap</td>
@@ -70,26 +65,15 @@
                     <td width="70%" class="text-indent-0"><?= $data->pekerjaan ?></td>
                 </tr>
             </table>
-            <p class="text-indent text-justify">
-                <?= $data->membaca ?>
-            </p>
-            <p class="text-indent text-justify">
+            <div class="text-indent text-justify">
                 <?= $data->menimbang ?>
-            </p>
-            <p class="text-indent text-justify">
-                Menimbang, bahwa untuk kepentingan pemeriksaan perlu mengeluarkan surat perintah penahanan terhadap
-                Terdakwa tersebut di atas;
-            </p>
-            <p class="text-indent text-justify">
-                Memperhatikan Pasal 26 ayat (1)jo. Pasal 21 ayat (4) Undang-Undang Nomor 8 Tahun 1981 tentang Hukum
-                Acara Pidana;
-            </p>
-            <p class="text-center text-uppercase fw-bold">
+            </div>
+            <p class="text-center text-uppercase fw-bold space-alpha mt-3">
                 Menetapkan:
             </p>
-            <p class="text-justify space-alpha">
+            <div class="text-indent text-justify mt-2">
                 <?= $data->menetapkan ?>
-            </p>
+            </div>
         </section>
 
         <table class="table table-sm table-borderless mt-5">
@@ -101,27 +85,18 @@
             </tr>
             <tr>
                 <td width="60%"></td>
-                <td>Pada tanggal <?= tanggal($data->tgl_ditetapkan) ?>;</td>
-            </tr>
-        </table>
-        <table class="table table-sm table-borderless">
-            <tr>
-                <td class="text-center">Hakim Anggota</td>
-                <td class="text-center">Hakim Ketua</td>
+                <td>Pada Tanggal <?= tanggal($data->tgl_ditetapkan) ?>;</td>
             </tr>
             <tr>
-                <td class="py-4"></td>
-                <td class="py-4"></td>
+                <td width="60%"></td>
+                <td class="pb-4 text-uppercase">ketua pengadilan negeri tondano,</td>
             </tr>
             <tr>
-                <td class="text-center"><?= $data->hakim_satu ?></td>
-                <td class="text-center"><?= $data->hakim_ketua ?></td>
-            </tr>
-            <tr>
-                <td class="py-4"></td>
-            </tr>
-            <tr>
-                <td class="text-center"><?= $data->hakim_dua ?></td>
+                <td width="60%"></td>
+                <td class="pt-5 text-uppercase">
+                    <u><?= $data->nama_ketua ?></u><br>
+                    NIP. <?= $data->nip ?>
+                </td>
             </tr>
         </table>
     </div>

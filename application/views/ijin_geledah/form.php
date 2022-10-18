@@ -67,14 +67,17 @@
                             <input type="text" class="form-control" name="pekerjaan" value="<?= ($isEdit) ? $data->pekerjaan : '' ?>" required>
                         </div>
                     </div>
+                    <?php
+                    $membaca = 'Membaca surat permohonan penyidik Nomor: ';
+                    ?>
                     <div class="form-group">
                         <label for="membaca" class="col-sm-2 control-label">Membaca</label>
                         <div class="col-sm-10">
-                            <textarea name="membaca" class="summernote"><?= ($isEdit) ? $data->membaca : '' ?></textarea>
+                            <textarea name="membaca" class="summernote"><?= ($isEdit) ? $data->membaca : $membaca ?></textarea>
                         </div>
                     </div>
                     <?php
-                    $menimbang = 'Menimbang, bahwa terdakwa telah didakwa melakukan tindak pidana sebagaimana diatur dalam Pasal ';
+                    $menimbang = 'Menimbang, bahwa berdasarkan laporan dari Penyidik';
                     ?>
                     <div class="form-group">
                         <label for="menimbang" class="col-sm-2 control-label">Menimbang</label>
@@ -82,10 +85,13 @@
                             <textarea name="menimbang" class="summernote"><?= ($isEdit) ? $data->menimbang : $menimbang ?></textarea>
                         </div>
                     </div>
+                    <?php
+                    $menetapkan = 'Memberikan persetujuan penggeledahan';
+                    ?>
                     <div class="form-group">
                         <label for="menetapkan" class="col-sm-2 control-label">Menetapkan</label>
                         <div class="col-sm-10">
-                            <textarea name="menetapkan" class="summernote"><?= ($isEdit) ? $data->menetapkan : '' ?></textarea>
+                            <textarea name="menetapkan" class="summernote"><?= ($isEdit) ? $data->menetapkan : $menetapkan ?></textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -95,37 +101,20 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="hakim_ketua" class="col-sm-2 control-label">Hakim Ketua</label>
+                        <label for="nama_ketua" class="col-sm-2 control-label">Nama Ketua</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="hakim_ketua" value="<?= ($isEdit) ? $data->hakim_ketua : '' ?>" required>
+                            <input type="text" class="form-control" name="nama_ketua" value="<?= ($isEdit) ? $data->nama_ketua : '' ?>" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="hakim_satu" class="col-sm-2 control-label">Hakim Anggota (1)</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="hakim_satu" value="<?= ($isEdit) ? $data->hakim_satu : '' ?>" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="hakim_dua" class="col-sm-2 control-label">Hakim Anggota (2)</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="hakim_dua" value="<?= ($isEdit) ? $data->hakim_dua : '' ?>" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="file" class="col-sm-2 control-label">File Hasil Sidang</label>
-                        <div class="col-sm-10">
-                            <input type="file" class="form-control" name="file" <?= ($isEdit) ? '' : 'required' ?>>
-                            <?php if ($isEdit) : ?>
-                                <small class="text-danger">
-                                    Jika tidak ingin mengubah file hasil sidang maka harap dikosongkan
-                                </small>
-                            <?php endif; ?>
+                        <label for="nip" class="col-sm-2 control-label">NIP Ketua</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="nip" value="<?= ($isEdit) ? $data->nip : '' ?>" required>
                         </div>
                     </div>
                 </div>
                 <div class="box-footer">
-                    <?= button_back('penetapan_hs') ?>
+                    <?= button_back('ijin_geledah') ?>
                     <button type="submit" class="btn btn-success pull-right">
                         Simpan Data
                     </button>

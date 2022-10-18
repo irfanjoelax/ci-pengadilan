@@ -18,12 +18,12 @@ class Penahanan_hakim extends CI_Controller
     public function index()
     {
         $level_user = $this->session->userdata('level_user');
-        $level_kejaksaan = [
+        $level_lapas = [
             'lapas_minahasa', 'rutan_minahasa_selatan', 'lapas_tomohon'
         ];
 
-        if (in_array($level_user, $level_kejaksaan)) {
-            $this->db->where('tujuan', $level_user);
+        if (in_array($level_user, $level_lapas)) {
+            $this->db->where('tujuan_lapas', $level_user);
         }
 
         $data = $this->db->order_by('id', 'DESC')->get($this->table)->result();
@@ -59,15 +59,25 @@ class Penahanan_hakim extends CI_Controller
     {
         $data = [
             'no_perkara'     => $this->input->post('no_perkara', TRUE),
-            'nama_terdakwa'  => $this->input->post('nama_terdakwa', TRUE),
+            'nama'           => $this->input->post('nama', TRUE),
+            'tempat_lahir'   => $this->input->post('tempat_lahir', TRUE),
+            'umur'           => $this->input->post('umur', TRUE),
+            'tgl_lahir'      => $this->input->post('tgl_lahir', TRUE),
+            'kelamin'        => $this->input->post('kelamin', TRUE),
+            'kebangsaan'     => $this->input->post('kebangsaan', TRUE),
+            'tempat_tinggal' => $this->input->post('tempat_tinggal', TRUE),
+            'agama'          => $this->input->post('agama', TRUE),
+            'pekerjaan'      => $this->input->post('pekerjaan', TRUE),
             'membaca'        => $this->input->post('membaca', TRUE),
-            'tgl_menetapkan' => $this->input->post('tgl_menetapkan', TRUE),
-            'wkt_menetapkan' => $this->input->post('wkt_menetapkan', TRUE),
+            'menimbang'      => $this->input->post('menimbang', TRUE),
+            'menetapkan'     => $this->input->post('menetapkan', TRUE),
             'tgl_ditetapkan' => $this->input->post('tgl_ditetapkan', TRUE),
-            'nama_hakim'     => $this->input->post('nama_hakim', TRUE),
-            'file_hs'        => $this->_upload(),
-            'status_hs'      => 'PROSES',
-            'tujuan_hs'      => null,
+            'hakim_ketua'    => $this->input->post('hakim_ketua', TRUE),
+            'hakim_satu'     => $this->input->post('hakim_satu', TRUE),
+            'hakim_dua'      => $this->input->post('hakim_dua', TRUE),
+            'file'           => $this->_upload(),
+            'status'         => 'PROSES',
+            'tujuan_lapas'   => null,
         ];
 
         $this->db->insert($this->table, $data);
@@ -80,35 +90,45 @@ class Penahanan_hakim extends CI_Controller
         $data = $this->db->get_where($this->table, ['id' => $id,])->row();
 
         $this->load->view('penahanan_hakim/form', [
-            'active'    => 'penahanan_hakim',
-            'header'    => 'Form Penetapan HS',
-            'subheader' => 'Harap Masukkan data penahanan hakim dengan lengkap dan benar',
-            'isEdit'    => true,
-            'url'       => site_url('penahanan_hakim/update/' . $id),
-            'data'      => $data,
-            'summernote'  => true
+            'active'     => 'penahanan_hakim',
+            'header'     => 'Form Penetapan HS',
+            'subheader'  => 'Harap Masukkan data penahanan hakim dengan lengkap dan benar',
+            'isEdit'     => true,
+            'url'        => site_url('penahanan_hakim/update/' . $id),
+            'data'       => $data,
+            'summernote' => true
         ]);
     }
 
     public function update($id)
     {
-        $penetapanHS = $this->db->get_where($this->table, ['id' => $id])->row();
-        $file        = $penetapanHS->file_hs;
+        $penehananHakim = $this->db->get_where($this->table, ['id' => $id])->row();
+        $file        = $penehananHakim->file;
 
-        if (!empty($_FILES["file_hs"]["name"])) {
+        if (!empty($_FILES["file"]["name"])) {
             unlink($this->storage . "/" . $file);
             $file = $this->_upload();
         }
 
         $data = [
             'no_perkara'     => $this->input->post('no_perkara', TRUE),
-            'nama_terdakwa'  => $this->input->post('nama_terdakwa', TRUE),
+            'nama'           => $this->input->post('nama', TRUE),
+            'tempat_lahir'   => $this->input->post('tempat_lahir', TRUE),
+            'umur'           => $this->input->post('umur', TRUE),
+            'tgl_lahir'      => $this->input->post('tgl_lahir', TRUE),
+            'kelamin'        => $this->input->post('kelamin', TRUE),
+            'kebangsaan'     => $this->input->post('kebangsaan', TRUE),
+            'tempat_tinggal' => $this->input->post('tempat_tinggal', TRUE),
+            'agama'          => $this->input->post('agama', TRUE),
+            'pekerjaan'      => $this->input->post('pekerjaan', TRUE),
             'membaca'        => $this->input->post('membaca', TRUE),
-            'tgl_menetapkan' => $this->input->post('tgl_menetapkan', TRUE),
-            'wkt_menetapkan' => $this->input->post('wkt_menetapkan', TRUE),
+            'menimbang'      => $this->input->post('menimbang', TRUE),
+            'menetapkan'     => $this->input->post('menetapkan', TRUE),
             'tgl_ditetapkan' => $this->input->post('tgl_ditetapkan', TRUE),
-            'nama_hakim'     => $this->input->post('nama_hakim', TRUE),
-            'file_hs'        => $file,
+            'hakim_ketua'    => $this->input->post('hakim_ketua', TRUE),
+            'hakim_satu'     => $this->input->post('hakim_satu', TRUE),
+            'hakim_dua'      => $this->input->post('hakim_dua', TRUE),
+            'file'           => $this->_upload(),
         ];
 
         $this->db->where('id', $id)->update($this->table, $data);
@@ -118,8 +138,8 @@ class Penahanan_hakim extends CI_Controller
 
     public function delete($id)
     {
-        $penetapanHS = $this->db->get_where($this->table, ['id' => $id])->row();
-        unlink($this->storage . "/" . $penetapanHS->file_hs);
+        $penehananHakim = $this->db->get_where($this->table, ['id' => $id])->row();
+        unlink($this->storage . "/" . $penehananHakim->file);
         $this->db->delete($this->table, array('id' => $id));
         alert(ucwords('data penahanan hakim berhasil dihapus'), site_url('penahanan_hakim'));
     }
@@ -131,7 +151,7 @@ class Penahanan_hakim extends CI_Controller
 
         $this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('file_hs')) {
+        if ($this->upload->do_upload('file')) {
             return $this->upload->data('file_name');
         } else {
             return $this->upload->display_errors();
@@ -148,8 +168,8 @@ class Penahanan_hakim extends CI_Controller
 
         $this->load->view('penahanan_hakim/show', [
             'active'    => 'penahanan_hakim',
-            'header'    => 'Penatapan HS',
-            'subheader' => 'Detail lengkap penetapan hasil sidang',
+            'header'    => 'Penahanan Hakim',
+            'subheader' => 'Detail lengkap penahanan hakim',
             'data'      => $data,
         ]);
     }
@@ -157,8 +177,8 @@ class Penahanan_hakim extends CI_Controller
     public function update_tujuan($id)
     {
         $data = [
-            'status_hs' => 'TERVALIDASI',
-            'tujuan_hs' => $this->input->post('tujuan_hs', TRUE),
+            'status'       => 'TERVALIDASI',
+            'tujuan_lapas' => $this->input->post('tujuan_lapas', TRUE),
         ];
 
         $this->db->where('id', $id)->update($this->table, $data);
@@ -167,12 +187,12 @@ class Penahanan_hakim extends CI_Controller
     }
 
     /**
-     * CETAK => KEJAKSAAN LEVEL USER
+     * CETAK => LAPAS LEVEL USER
      */
     public function print($id)
     {
         $update = [
-            'status_hs' => 'SELESAI',
+            'status' => 'SELESAI',
         ];
         $this->db->where('id', $id)->update($this->table, $update);
 

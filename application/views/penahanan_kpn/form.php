@@ -67,10 +67,13 @@
                             <input type="text" class="form-control" name="pekerjaan" value="<?= ($isEdit) ? $data->pekerjaan : '' ?>" required>
                         </div>
                     </div>
+                    <?php
+                    $membaca = 'Terdakwa ditahan dalam Tahanan Rutan Lapas';
+                    ?>
                     <div class="form-group">
                         <label for="membaca" class="col-sm-2 control-label">Membaca</label>
                         <div class="col-sm-10">
-                            <textarea name="membaca" class="summernote"><?= ($isEdit) ? $data->membaca : '' ?></textarea>
+                            <textarea name="membaca" class="summernote"><?= ($isEdit) ? $data->membaca : $membaca ?></textarea>
                         </div>
                     </div>
                     <?php
@@ -95,21 +98,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="hakim_ketua" class="col-sm-2 control-label">Hakim Ketua</label>
+                        <label for="nama_ketua" class="col-sm-2 control-label">Nama KPN</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="hakim_ketua" value="<?= ($isEdit) ? $data->hakim_ketua : '' ?>" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="hakim_satu" class="col-sm-2 control-label">Hakim Anggota (1)</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="hakim_satu" value="<?= ($isEdit) ? $data->hakim_satu : '' ?>" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="hakim_dua" class="col-sm-2 control-label">Hakim Anggota (2)</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="hakim_dua" value="<?= ($isEdit) ? $data->hakim_dua : '' ?>" required>
+                            <input type="text" class="form-control" name="nama_ketua" value="<?= ($isEdit) ? $data->nama_ketua : '' ?>" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -125,7 +116,7 @@
                     </div>
                 </div>
                 <div class="box-footer">
-                    <?= button_back('penetapan_hs') ?>
+                    <?= button_back('penahanan_kpn') ?>
                     <button type="submit" class="btn btn-success pull-right">
                         Simpan Data
                     </button>

@@ -5,7 +5,7 @@
         <div class="box box-success">
             <?php if ($this->session->userdata('level_user') == 'admin') : ?>
                 <div class="box-header text-right">
-                    <a href="<?= site_url('penahanan_hakim/create') ?>" class="btn btn-success mb-3">
+                    <a href="<?= site_url('ijin_sita/create') ?>" class="btn btn-success mb-3">
                         Tambah Data
                     </a>
                 </div>
@@ -31,29 +31,29 @@
                                 <td class="text-center"><?= $row->status ?></td>
                                 <td class="text-center">
                                     <span class="label label-default">
-                                        <?= strtoupper(str_replace('_', ' ', $row->tujuan_lapas)) ?>
+                                        <?= strtoupper(str_replace('_', ' ', $row->tujuan_kepolisian)) ?>
                                     </span>
                                 </td>
                                 <td class=" text-center">
                                     <?php
                                     $level_user = $this->session->userdata('level_user');
                                     $level_array = [
-                                        'lapas_minahasa', 'rutan_minahasa_selatan', 'lapas_tomohon'
+                                        'kepolisian_minahasa', 'kepolisian_minahasa_tenggara', 'kepolisian_tomohon'
                                     ];
 
                                     if (in_array($level_user, $level_array)) : ?>
-                                        <?= button_print('penahanan_hakim/print/' . $row->id) ?>
+                                        <?= button_download('asset/ijin-sita/' . $row->file) ?>
                                     <?php endif; ?>
 
-                                    <?php if ($this->session->userdata('level_user') == 'panitera_pengganti') : ?>
-                                        <?= button_show('penahanan_hakim/show/' . $row->id) ?>
+                                    <?php if ($level_user == 'ketua_pn') : ?>
+                                        <?= button_print('ijin_sita/print/' . $row->id) ?>
+                                        <?= button_show('ijin_sita/show/' . $row->id) ?>
                                     <?php endif; ?>
 
-                                    <?= button_download('asset/penahanan-hakim/' . $row->file) ?>
 
-                                    <?php if ($this->session->userdata('level_user') == 'admin') : ?>
-                                        <?= button_edit('penahanan_hakim/edit/' . $row->id) ?>
-                                        <?= button_delete('penahanan_hakim/delete/' . $row->id) ?>
+                                    <?php if ($level_user == 'admin') : ?>
+                                        <?= button_edit('ijin_sita/edit/' . $row->id) ?>
+                                        <?= button_delete('ijin_sita/delete/' . $row->id) ?>
                                     <?php endif; ?>
                                 </td>
                             </tr>

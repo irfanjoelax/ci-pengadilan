@@ -1,11 +1,10 @@
 <?php $this->load->view('layouts/header') ?>
 <div class="row">
     <div class="col-xs-12">
-
         <div class="box box-success">
             <?php if ($this->session->userdata('level_user') == 'admin') : ?>
                 <div class="box-header text-right">
-                    <a href="<?= site_url('penahanan_hakim/create') ?>" class="btn btn-success mb-3">
+                    <a href="<?= site_url('petikan_putusan/create') ?>" class="btn btn-success mb-3">
                         Tambah Data
                     </a>
                 </div>
@@ -31,6 +30,9 @@
                                 <td class="text-center"><?= $row->status ?></td>
                                 <td class="text-center">
                                     <span class="label label-default">
+                                        <?= strtoupper(str_replace('_', ' ', $row->tujuan_kejaksaan)) ?>
+                                    </span> <br>
+                                    <span class="label label-default">
                                         <?= strtoupper(str_replace('_', ' ', $row->tujuan_lapas)) ?>
                                     </span>
                                 </td>
@@ -38,22 +40,32 @@
                                     <?php
                                     $level_user = $this->session->userdata('level_user');
                                     $level_array = [
-                                        'lapas_minahasa', 'rutan_minahasa_selatan', 'lapas_tomohon'
+                                        'kejaksaan_minahasa',
+                                        'kejaksaan_minahasa_selatan',
+                                        'kejaksaan_tomohon',
+                                        'lapas_minahasa',
+                                        'rutan_minahasa_selatan',
+                                        'lapas_tomohon'
                                     ];
-
-                                    if (in_array($level_user, $level_array)) : ?>
-                                        <?= button_print('penahanan_hakim/print/' . $row->id) ?>
+                                    ?>
+                                    <?php if ($level_user == 'panitera_pengganti') : ?>
+                                        <?= button_show('petikan_putusan/show/' . $row->id) ?>
+                                        <?= button_download('asset/petikan-putusan/' . $row->file) ?>
                                     <?php endif; ?>
 
-                                    <?php if ($this->session->userdata('level_user') == 'panitera_pengganti') : ?>
-                                        <?= button_show('penahanan_hakim/show/' . $row->id) ?>
+                                    <?php if ($level_user == 'majelis_hakim') : ?>
+                                        <?= button_print('petikan_putusan/print/' . $row->id) ?>
+                                        <?= button_show('petikan_putusan/show/' . $row->id) ?>
+                                        <?= button_download('asset/petikan-putusan/' . $row->file) ?>
                                     <?php endif; ?>
 
-                                    <?= button_download('asset/penahanan-hakim/' . $row->file) ?>
+                                    <?php if (in_array($level_user, $level_array)) : ?>
+                                        <?= button_download('asset/petikan-putusan/' . $row->file) ?>
+                                    <?php endif; ?>
 
-                                    <?php if ($this->session->userdata('level_user') == 'admin') : ?>
-                                        <?= button_edit('penahanan_hakim/edit/' . $row->id) ?>
-                                        <?= button_delete('penahanan_hakim/delete/' . $row->id) ?>
+                                    <?php if ($level_user == 'admin') : ?>
+                                        <?= button_edit('petikan_putusan/edit/' . $row->id) ?>
+                                        <?= button_delete('petikan_putusan/delete/' . $row->id) ?>
                                     <?php endif; ?>
                                 </td>
                             </tr>

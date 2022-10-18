@@ -67,25 +67,31 @@
                             <input type="text" class="form-control" name="pekerjaan" value="<?= ($isEdit) ? $data->pekerjaan : '' ?>" required>
                         </div>
                     </div>
+                    <?php
+                    $membaca = '1. Penyidik tidak dilakukan Penahanan  ';
+                    ?>
                     <div class="form-group">
                         <label for="membaca" class="col-sm-2 control-label">Membaca</label>
                         <div class="col-sm-10">
-                            <textarea name="membaca" class="summernote"><?= ($isEdit) ? $data->membaca : '' ?></textarea>
+                            <textarea name="membaca" class="summernote"><?= ($isEdit) ? $data->membaca : $membaca ?></textarea>
                         </div>
                     </div>
                     <?php
-                    $menimbang = 'Menimbang, bahwa terdakwa telah didakwa melakukan tindak pidana sebagaimana diatur dalam Pasal ';
+                    $mengingat = 'mengingat, bahwa terdakwa telah didakwa melakukan tindak pidana sebagaimana diatur dalam Pasal ';
                     ?>
                     <div class="form-group">
-                        <label for="menimbang" class="col-sm-2 control-label">Menimbang</label>
+                        <label for="mengingat" class="col-sm-2 control-label">Mengingat</label>
                         <div class="col-sm-10">
-                            <textarea name="menimbang" class="summernote"><?= ($isEdit) ? $data->menimbang : $menimbang ?></textarea>
+                            <textarea name="mengingat" class="summernote"><?= ($isEdit) ? $data->mengingat : $mengingat ?></textarea>
                         </div>
                     </div>
+                    <?php
+                    $mengadili = 'mengingat, bahwa terdakwa telah didakwa melakukan tindak pidana sebagaimana diatur dalam Pasal ';
+                    ?>
                     <div class="form-group">
-                        <label for="menetapkan" class="col-sm-2 control-label">Menetapkan</label>
+                        <label for="mengadili" class="col-sm-2 control-label">mengadili</label>
                         <div class="col-sm-10">
-                            <textarea name="menetapkan" class="summernote"><?= ($isEdit) ? $data->menetapkan : '' ?></textarea>
+                            <textarea name="mengadili" class="summernote"><?= ($isEdit) ? $data->mengadili : '' ?></textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -112,20 +118,9 @@
                             <input type="text" class="form-control" name="hakim_dua" value="<?= ($isEdit) ? $data->hakim_dua : '' ?>" required>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="file" class="col-sm-2 control-label">File Hasil Sidang</label>
-                        <div class="col-sm-10">
-                            <input type="file" class="form-control" name="file" <?= ($isEdit) ? '' : 'required' ?>>
-                            <?php if ($isEdit) : ?>
-                                <small class="text-danger">
-                                    Jika tidak ingin mengubah file hasil sidang maka harap dikosongkan
-                                </small>
-                            <?php endif; ?>
-                        </div>
-                    </div>
                 </div>
                 <div class="box-footer">
-                    <?= button_back('penetapan_hs') ?>
+                    <?= button_back('petikan_putusan') ?>
                     <button type="submit" class="btn btn-success pull-right">
                         Simpan Data
                     </button>

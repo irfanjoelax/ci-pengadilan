@@ -90,16 +90,50 @@
                         </li>
                     <?php endif; ?>
                     <li class="header">FITUR UTAMA</li>
-                    <li class="<?= ($active == 'penetapan_hs') ? 'active' : '' ?>">
-                        <a href="<?= site_url('penetapan_hs') ?>">
-                            <i class="fa fa-calendar"></i> <span>Penetapan Hari Sidang</span>
-                        </a>
-                    </li>
-                    <li class="<?= ($active == 'penahanan_hakim') ? 'active' : '' ?>">
-                        <a href="<?= site_url('penahanan_hakim') ?>">
-                            <i class="fa fa-mortar-board"></i> <span>Penahanan Hakim</span>
-                        </a>
-                    </li>
+                    <?php
+                    $level_user = $this->session->userdata('level_user');
+
+                    $level_kejaksaan = [
+                        'kejaksaan_minahasa', 'kejaksaan_minahasa_selatan', 'kejaksaan_tomohon'
+                    ];
+
+                    $level_lapas = [
+                        'lapas_minahasa', 'rutan_minahasa_selatan', 'lapas_tomohon'
+                    ];
+
+                    $level_kepolisian = [
+                        'kepolisian_minahasa', 'kepolisian_minahasa_tenggara', 'kepolisian_tomohon'
+                    ];
+
+                    if ($level_user == 'admin') {
+                        $this->load->view('layouts/nav-admin');
+                    }
+
+                    if ($level_user == 'panitera_pengganti') {
+                        $this->load->view('layouts/nav-panitera-pengganti');
+                    }
+
+                    if ($level_user == 'ketua_pn') {
+                        $this->load->view('layouts/nav-ketua-pn');
+                    }
+
+                    if ($level_user == 'majelis_hakim') {
+                        $this->load->view('layouts/nav-majelis-hakim');
+                    }
+
+                    if (in_array($level_user, $level_kejaksaan)) {
+                        $this->load->view('layouts/nav-kejaksaan');
+                    }
+
+                    if (in_array($level_user, $level_lapas)) {
+                        $this->load->view('layouts/nav-lapas');
+                    }
+
+                    if (in_array($level_user, $level_kepolisian)) {
+                        $this->load->view('layouts/nav-kepolisian');
+                    }
+
+                    ?>
                 </ul>
             </section>
         </aside>

@@ -36,28 +36,14 @@
                             <td width="80%"><?= tanggal($data->tgl_ditetapkan) ?></td>
                         </tr>
                         <tr>
-                            <td width="17%">Hakim Ketua</td>
+                            <td width="17%">Nama Ketua</td>
                             <td width="3%">:</td>
-                            <td width="80%"><?= $data->hakim_ketua ?></td>
+                            <td width="80%"><?= $data->nama_ketua ?></td>
                         </tr>
                         <tr>
-                            <td width="17%">Hakim Anggota (1)</td>
+                            <td width="17%">NIP Ketua</td>
                             <td width="3%">:</td>
-                            <td width="80%"><?= $data->hakim_satu ?></td>
-                        </tr>
-                        <tr>
-                            <td width="17%">Hakim Anggota (2)</td>
-                            <td width="3%">:</td>
-                            <td width="80%"><?= $data->hakim_dua ?></td>
-                        </tr>
-                        <tr>
-                            <td width="17%">File Hasil Sidang</td>
-                            <td width="3%">:</td>
-                            <td width="80%">
-                                <a href="<?= base_url('asset/penahanan-hakim/' . $data->file) ?>" class="btn btn-xs btn-info" target="_blank">
-                                    <i class="fa fa-download"></i> <?= $data->file ?>
-                                </a>
-                            </td>
+                            <td width="80%"><?= $data->nip ?></td>
                         </tr>
                         <tr>
                             <td width="17%">Status</td>
@@ -69,29 +55,32 @@
                             <td width="3%">:</td>
                             <td width="80%">
                                 <?php
-                                if ($data->tujuan_lapas == null) {
+                                if ($data->tujuan_kepolisian == null) {
                                 ?>
-                                    <form class="form-inline" action="<?= site_url('penahanan_hakim/update_tujuan/' . $data->id) ?>" method="POST">
+                                    <form class="form-inline" action="<?= site_url('ijin_sita/update_tujuan/' . $data->id) ?>" method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <select name="tujuan_lapas" class="form-control" required>
-                                                <option value="lapas_minahasa" selected>
-                                                    Lapas Minahasa
+                                            <input type="file" class="form-control" name="file" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <select name="tujuan_kepolisian" class="form-control" required>
+                                                <option value="kepolisian_minahasa" selected>
+                                                    Kepolisian Minahasa
                                                 </option>
-                                                <option value="lapas_tomohon">
-                                                    Lapas Tomohon
+                                                <option value="kepolisian_minahasa_tenggara">
+                                                    Kepolisian Minahasa Tenggara
                                                 </option>
-                                                <option value="rutan_minahasa_selatan">
-                                                    Rutan Minahasa Selatan
+                                                <option value="kepolisian_tomohon">
+                                                    Kepolisian Tomohon
                                                 </option>
                                             </select>
                                         </div>
                                         <button type="submit" class="btn btn-info">
-                                            Validasi Selesai
+                                            Kirim Ketujuan
                                         </button>
                                     </form>
                                 <?php
                                 } else {
-                                    echo strtoupper(str_replace('_', ' ', $data->tujuan_lapas));
+                                    echo strtoupper(str_replace('_', ' ', $data->tujuan_kepolisian));
                                 }
                                 ?>
                             </td>
