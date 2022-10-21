@@ -50,17 +50,15 @@
                                     ?>
                                     <?php if ($level_user == 'panitera_pengganti') : ?>
                                         <?= button_show('petikan_putusan/show/' . $row->id) ?>
-                                        <?= button_download('asset/petikan-putusan/' . $row->file) ?>
                                     <?php endif; ?>
 
                                     <?php if ($level_user == 'majelis_hakim') : ?>
                                         <?= button_print('petikan_putusan/print/' . $row->id) ?>
                                         <?= button_show('petikan_putusan/show/' . $row->id) ?>
-                                        <?= button_download('asset/petikan-putusan/' . $row->file) ?>
                                     <?php endif; ?>
 
                                     <?php if (in_array($level_user, $level_array)) : ?>
-                                        <?= button_download('asset/petikan-putusan/' . $row->file) ?>
+                                        <?= button_print('petikan_putusan/print/' . $row->id) ?>
                                     <?php endif; ?>
 
                                     <?php if ($level_user == 'admin') : ?>

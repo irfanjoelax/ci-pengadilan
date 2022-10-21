@@ -38,13 +38,23 @@
                                     </span>
                                 </td>
                                 <td class=" text-center">
-                                    <?php $level_user = $this->session->userdata('level_user'); ?>
+                                    <?php
+                                    $level_user = $this->session->userdata('level_user');
+                                    $level_array = [
+                                        'kejaksaan_minahasa',
+                                        'kejaksaan_minahasa_selatan',
+                                        'kejaksaan_tomohon',
+                                        'lapas_minahasa',
+                                        'rutan_minahasa_selatan',
+                                        'lapas_tomohon'
+                                    ];
+                                    ?>
                                     <?php if ($level_user == 'panitera_pengganti' or $level_user == 'ketua_pn') : ?>
                                         <?= button_show('penahanan_kpn/show/' . $row->id) ?>
+                                        <?= button_print('penahanan_kpn/print/' . $row->id) ?>
                                     <?php endif; ?>
 
-                                    <?php if ($level_user == 'ketua_pn') : ?>
-                                        <?= button_show('penahanan_kpn/show/' . $row->id) ?>
+                                    <?php if (in_array($level_user, $level_array)) : ?>
                                         <?= button_print('penahanan_kpn/print/' . $row->id) ?>
                                     <?php endif; ?>
 
@@ -53,7 +63,6 @@
                                         <?= button_delete('penahanan_kpn/delete/' . $row->id) ?>
                                     <?php endif; ?>
 
-                                    <?= button_download('asset/penahanan-kpn/' . $row->file) ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

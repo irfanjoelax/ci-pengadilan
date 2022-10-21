@@ -77,9 +77,6 @@
                                     <td width="80%">
                                         <form class="form-inline" action="<?= site_url('petikan_putusan/validasi/' . $data->id) ?>" method="POST" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <input type="file" class="form-control" name="file" required>
-                                            </div>
-                                            <div class="form-group">
                                                 <input type="text" class="form-control" name="panitera_pengganti" required>
                                             </div>
                                             <button type="submit" class="btn btn-info">
@@ -98,10 +95,8 @@
                                     <td width="80%">
                                         <form class="form-inline" action="<?= site_url('petikan_putusan/update_tujuan/' . $data->id) ?>" method="POST" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <input type="file" class="form-control" name="file" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <select name="tujuan_kejaksaan" class="form-control" required>
+                                                <select name="tujuan_kejaksaan" id="tujuan_kejaksaan" class="form-control" required>
+                                                    <option value="" selected>Pilih Kejaksaan</option>
                                                     <option value="kejaksaan_minahasa" selected>
                                                         Kejaksaan Minahasa
                                                     </option>
@@ -114,7 +109,8 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select name="tujuan_lapas" class="form-control" required>
+                                                <select name="tujuan_lapas" id="tujuan_lapas" class="form-control" required>
+                                                    <option value="" selected>Pilih Lapas</option>
                                                     <option value="lapas_minahasa" selected>
                                                         Lapas Minahasa
                                                     </option>

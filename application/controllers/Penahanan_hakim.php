@@ -147,7 +147,7 @@ class Penahanan_hakim extends CI_Controller
     private function _upload()
     {
         $config['upload_path']   = $this->storage;
-        $config['allowed_types'] = 'pdf|docx';
+        $config['allowed_types'] = 'pdf|docx|doc';
 
         $this->load->library('upload', $config);
 

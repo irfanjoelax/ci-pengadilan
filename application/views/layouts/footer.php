@@ -15,6 +15,21 @@
 <script src="<?= base_url() ?>asset/js/jquery.min.js"></script>
 <script src="<?= base_url() ?>asset/js/bootstrap.min.js"></script>
 <script src="<?= base_url() ?>asset/js/adminlte.min.js"></script>
+<script>
+    const form = document.querySelector('.form-inline');
+
+    form.onsubmit = () => {
+        const kejaksaan = document.getElementById('tujuan_kejaksaan').value;
+        const lapas = document.getElementById('tujuan_lapas').value;
+
+        if (kejaksaan == '' && lapas == '') {
+            alert(`Harap Masukkan tujuan minimal salah satu kejaksaan atau lapas`)
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
 <?php if (isset($datatable)) : ?>
     <script src="<?= base_url() ?>asset/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url() ?>asset/js/dataTables.bootstrap.min.js"></script>

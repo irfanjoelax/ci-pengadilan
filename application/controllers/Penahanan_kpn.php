@@ -82,7 +82,7 @@ class Penahanan_kpn extends CI_Controller
             'menetapkan'       => $this->input->post('menetapkan', TRUE),
             'tgl_ditetapkan'   => $this->input->post('tgl_ditetapkan', TRUE),
             'nama_ketua'       => $this->input->post('nama_ketua', TRUE),
-            'file'             => null,
+            'file'             => $this->_upload(),
             'status'           => 'PROSES',
             'tujuan_kejaksaan' => null,
             'tujuan_lapas'     => null,
@@ -144,7 +144,7 @@ class Penahanan_kpn extends CI_Controller
     private function _upload()
     {
         $config['upload_path']   = $this->storage;
-        $config['allowed_types'] = 'pdf|docx';
+        $config['allowed_types'] = 'pdf|docx|doc';
 
         $this->load->library('upload', $config);
 

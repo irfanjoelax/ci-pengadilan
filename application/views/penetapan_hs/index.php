@@ -45,13 +45,12 @@
                                         <?= button_print('penetapan_hs/print/' . $row->id_hs) ?>
                                     <?php endif; ?>
 
-                                    <?php if ($this->session->userdata('level_user') == 'panitera_pengganti') : ?>
+                                    <?php if ($level_user == 'panitera_pengganti') : ?>
                                         <?= button_show('penetapan_hs/show/' . $row->id_hs) ?>
+                                        <?= button_download('asset/penetapan-hs/' . $row->file_hs) ?>
                                     <?php endif; ?>
 
-                                    <?= button_download('asset/penetapan-hs/' . $row->file_hs) ?>
-
-                                    <?php if ($this->session->userdata('level_user') == 'admin') : ?>
+                                    <?php if ($level_user == 'admin') : ?>
                                         <?= button_edit('penetapan_hs/edit/' . $row->id_hs) ?>
                                         <?= button_delete('penetapan_hs/delete/' . $row->id_hs) ?>
                                     <?php endif; ?>

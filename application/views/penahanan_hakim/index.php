@@ -47,9 +47,8 @@
 
                                     <?php if ($this->session->userdata('level_user') == 'panitera_pengganti') : ?>
                                         <?= button_show('penahanan_hakim/show/' . $row->id) ?>
+                                        <?= button_download('asset/penahanan-hakim/' . $row->file) ?>
                                     <?php endif; ?>
-
-                                    <?= button_download('asset/penahanan-hakim/' . $row->file) ?>
 
                                     <?php if ($this->session->userdata('level_user') == 'admin') : ?>
                                         <?= button_edit('penahanan_hakim/edit/' . $row->id) ?>

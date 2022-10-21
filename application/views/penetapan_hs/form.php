@@ -46,7 +46,7 @@
                     <div class="form-group">
                         <label for="file_hs" class="col-sm-2 control-label">File Hasil Sidang</label>
                         <div class="col-sm-10">
-                            <input type="file" class="form-control" name="file_hs" value="<?= ($isEdit) ? $data->file_hs : '' ?>" <?= ($isEdit) ? '' : 'required' ?>>
+                            <input type="file" class="form-control" name="file_hs" value="<?= ($isEdit) ? $data->file_hs : '' ?>">
                             <?php if ($isEdit) : ?>
                                 <small class="text-danger">
                                     Jika tidak ingin mengubah file hasil sidang maka harap dikosongkan

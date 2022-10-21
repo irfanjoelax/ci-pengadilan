@@ -40,7 +40,7 @@
                             <td width="3%">:</td>
                             <td width="80%"><?= $data->nama_ketua ?></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td width="17%">File Hasil Sidang</td>
                             <td width="3%">:</td>
                             <td width="80%">
@@ -48,7 +48,7 @@
                                     <i class="fa fa-download"></i> <?= $data->file ?>
                                 </a>
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <td width="17%">Status</td>
                             <td width="3%">:</td>
@@ -75,11 +75,9 @@
                                     ?>
                                         <form class="form-inline" action="<?= site_url('penahanan_kpn/update_tujuan/' . $data->id) ?>" method="POST" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <input type="file" class="form-control" name="file" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <select name="tujuan_kejaksaan" class="form-control" required>
-                                                    <option value="kejaksaan_minahasa" selected>
+                                                <select name="tujuan_kejaksaan" id="tujuan_kejaksaan" class="form-control">
+                                                    <option value="" selected>Pilih Kejaksaan</option>
+                                                    <option value="kejaksaan_minahasa">
                                                         Kejaksaan Minahasa
                                                     </option>
                                                     <option value="kejaksaan_minahasa_selatan">
@@ -91,8 +89,9 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select name="tujuan_lapas" class="form-control" required>
-                                                    <option value="lapas_minahasa" selected>
+                                                <select name="tujuan_lapas" id="tujuan_lapas" class="form-control">
+                                                    <option value="" selected>Pilih Lapas</option>
+                                                    <option value="lapas_minahasa">
                                                         Lapas Minahasa
                                                     </option>
                                                     <option value="lapas_tomohon">
@@ -103,7 +102,7 @@
                                                     </option>
                                                 </select>
                                             </div>
-                                            <button type="submit" class="btn btn-info" style="margin-top: 1rem;">
+                                            <button type="submit" class="btn btn-info">
                                                 Kirim Ketujuan
                                             </button>
                                         </form>
