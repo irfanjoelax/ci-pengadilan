@@ -40,15 +40,15 @@
                             <td width="3%">:</td>
                             <td width="80%"><?= $data->nama_ketua ?></td>
                         </tr>
-                        <!-- <tr>
-                            <td width="17%">File Hasil Sidang</td>
+                        <tr>
+                            <td width="17%">File</td>
                             <td width="3%">:</td>
                             <td width="80%">
                                 <a href="<?= base_url('asset/penahanan-kpn/' . $data->file) ?>" class="btn btn-xs btn-info" target="_blank">
                                     <i class="fa fa-download"></i> <?= $data->file ?>
                                 </a>
                             </td>
-                        </tr> -->
+                        </tr>
                         <tr>
                             <td width="17%">Status</td>
                             <td width="3%">:</td>
@@ -74,6 +74,9 @@
                                     if ($data->tujuan_lapas == null) {
                                     ?>
                                         <form class="form-inline" action="<?= site_url('penahanan_kpn/update_tujuan/' . $data->id) ?>" method="POST" enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <input type="file" name="file" class="form-control">
+                                            </div>
                                             <div class="form-group">
                                                 <select name="tujuan_kejaksaan" id="tujuan_kejaksaan" class="form-control">
                                                     <option value="" selected>Pilih Kejaksaan</option>
@@ -102,7 +105,7 @@
                                                     </option>
                                                 </select>
                                             </div>
-                                            <button type="submit" class="btn btn-info">
+                                            <button type="submit" class="btn btn-info" style="margin-top: 1rem;">
                                                 Kirim Ketujuan
                                             </button>
                                         </form>

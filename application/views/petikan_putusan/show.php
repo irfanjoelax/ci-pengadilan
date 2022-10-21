@@ -95,9 +95,9 @@
                                     <td width="80%">
                                         <form class="form-inline" action="<?= site_url('petikan_putusan/update_tujuan/' . $data->id) ?>" method="POST" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <select name="tujuan_kejaksaan" id="tujuan_kejaksaan" class="form-control" required>
+                                                <select name="tujuan_kejaksaan" id="tujuan_kejaksaan" class="form-control">
                                                     <option value="" selected>Pilih Kejaksaan</option>
-                                                    <option value="kejaksaan_minahasa" selected>
+                                                    <option value="kejaksaan_minahasa">
                                                         Kejaksaan Minahasa
                                                     </option>
                                                     <option value="kejaksaan_minahasa_selatan">
@@ -109,9 +109,9 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select name="tujuan_lapas" id="tujuan_lapas" class="form-control" required>
+                                                <select name="tujuan_lapas" id="tujuan_lapas" class="form-control">
                                                     <option value="" selected>Pilih Lapas</option>
-                                                    <option value="lapas_minahasa" selected>
+                                                    <option value="lapas_minahasa">
                                                         Lapas Minahasa
                                                     </option>
                                                     <option value="lapas_tomohon">
@@ -122,7 +122,7 @@
                                                     </option>
                                                 </select>
                                             </div>
-                                            <button type="submit" class="btn btn-info" style="margin-top: 1rem;">
+                                            <button type="submit" class="btn btn-info">
                                                 Kirim ke Tujuan
                                             </button>
                                         </form>
