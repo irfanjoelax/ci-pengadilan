@@ -114,13 +114,13 @@ Memperhatikan ………   tentang Hukum Acara Pidana;
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="nama_ketua" class="col-sm-2 control-label">Nama Ketua</label>
+                        <label for="nama_ketua" class="col-sm-2 control-label">Nama Wakil Ketua</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="nama_ketua" value="<?= ($isEdit) ? $data->nama_ketua : '' ?>" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="nip" class="col-sm-2 control-label">NIP Ketua</label>
+                        <label for="nip" class="col-sm-2 control-label">NIP Wakil Ketua</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="nip" value="<?= ($isEdit) ? $data->nip : '' ?>" required>
                         </div>

@@ -56,6 +56,7 @@
 
                                     <?php if (in_array($level_user, $level_array)) : ?>
                                         <?= button_download('asset/penahanan-kpn/' . $row->file) ?>
+                                        <?= button_print('penahanan_kpn/print/' . $row->id) ?>
                                     <?php endif; ?>
 
                                     <?php if ($level_user == 'admin') : ?>

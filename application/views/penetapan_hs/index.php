@@ -43,6 +43,7 @@
 
                                     if (in_array($level_user, $level_array)) : ?>
                                         <?= button_print('penetapan_hs/print/' . $row->id_hs) ?>
+                                        <?= button_download('asset/penetapan-hs/' . $row->file_hs) ?>
                                     <?php endif; ?>
 
                                     <?php if ($level_user == 'panitera_pengganti') : ?>

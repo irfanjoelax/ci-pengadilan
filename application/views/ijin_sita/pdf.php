@@ -70,6 +70,11 @@
                     <td width="70%" class="text-indent-0"><?= $data->kelamin ?></td>
                 </tr>
                 <tr class="text-indent">
+                    <td width="27%" class="align-top">Kebangsaan</td>
+                    <td width="3%" class="align-top">:</td>
+                    <td width="70%" class="text-indent-0"><?= $data->kebangsaan ?></td>
+                </tr>
+                <tr class="text-indent">
                     <td width="27%" class="align-top" class="align-top">Tempat tinggal</td>
                     <td width="3%" class="align-top">:</td>
                     <td width="70%" class="text-indent-0">
@@ -120,7 +125,10 @@
             </tr>
             <tr>
                 <td width="60%"></td>
-                <td class="pt-5 text-uppercase"><?= $data->nama_ketua ?></td>
+                <td class="pt-5 text-uppercase">
+                    <u><?= $data->nama_ketua ?></u><br>
+                    NIP. <?= $data->nip ?>
+                </td>
             </tr>
         </table>
     </div>

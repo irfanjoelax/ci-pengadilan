@@ -42,6 +42,7 @@
                                     ];
 
                                     if (in_array($level_user, $level_array)) : ?>
+                                        <?= button_download('asset/penahanan-hakim/' . $row->file) ?>
                                         <?= button_print('penahanan_hakim/print/' . $row->id) ?>
                                     <?php endif; ?>
 

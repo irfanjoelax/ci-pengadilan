@@ -43,7 +43,7 @@
                 demi keadilan berdasarkan ketuhanan yang maha esa
             </p>
             <p class="text-indent">
-                Ketua Pengadilan Negeri Tondano;
+                wakil Ketua Pengadilan Negeri Tondano;
             </p>
             <p class="text-indent">
                 <?= $data->membaca ?>
@@ -68,6 +68,11 @@
                     <td width="27%" class="align-top">Jenis Kelamin</td>
                     <td width="3%" class="align-top">:</td>
                     <td width="70%" class="text-indent-0"><?= $data->kelamin ?></td>
+                </tr>
+                <tr class="text-indent">
+                    <td width="27%" class="align-top">Kebangsaan</td>
+                    <td width="3%" class="align-top">:</td>
+                    <td width="70%" class="text-indent-0"><?= $data->kebangsaan ?></td>
                 </tr>
                 <tr class="text-indent">
                     <td width="27%" class="align-top" class="align-top">Tempat tinggal</td>
@@ -111,7 +116,7 @@
             </tr>
             <tr>
                 <td width="60%"></td>
-                <td class="pb-4 text-uppercase">ketua pengadilan negeri tondano,</td>
+                <td class="pb-4 text-uppercase">Wakil ketua pengadilan negeri tondano,</td>
             </tr>
             <tr>
                 <td width="60%"></td>

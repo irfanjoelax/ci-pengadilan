@@ -43,7 +43,7 @@
 
                                     if (in_array($level_user, $level_array)) : ?>
                                         <?= button_download('asset/ijin-geledah/' . $row->file) ?>
-                                        <?= button_print('ijin_sita/print/' . $row->id) ?>
+                                        <?= button_print('ijin_geledah/print/' . $row->id) ?>
                                     <?php endif; ?>
 
                                     <?php if ($level_user == 'ketua_pn') : ?>

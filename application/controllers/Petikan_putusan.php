@@ -180,6 +180,7 @@ class Petikan_putusan extends CI_Controller
         $data = [
             'panitera_pengganti' => $this->input->post('panitera_pengganti', TRUE),
             'status'             => 'TERVALIDASI',
+
         ];
 
         $this->db->where('id', $id)->update($this->table, $data);
@@ -190,6 +191,7 @@ class Petikan_putusan extends CI_Controller
     public function update_tujuan($id)
     {
         $data = [
+            'file'             => $this->_upload(),
             'status'           => 'SELESAI',
             'tujuan_kejaksaan' => $this->input->post('tujuan_kejaksaan', TRUE),
             'tujuan_lapas'     => $this->input->post('tujuan_lapas', TRUE),
