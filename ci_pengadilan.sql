@@ -51,15 +51,6 @@ CREATE TABLE `ijin_geledah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ijin_geledah`
---
-
-INSERT INTO `ijin_geledah` (`id`, `no_perkara`, `nama`, `tempat_lahir`, `umur`, `tgl_lahir`, `kelamin`, `kebangsaan`, `tempat_tinggal`, `agama`, `pekerjaan`, `membaca`, `menimbang`, `menetapkan`, `tgl_ditetapkan`, `nama_ketua`, `nip`, `status`, `file`, `tujuan_kepolisian`) VALUES
-(1, '06/PHS/2022 Tnn', 'John Doe', 'Washington', 28, '2022-10-21', 'Laki-Laki', 'Indonesia', 'Jalan Las Vegas', 'None', 'Wirausaha', 'Membaca surat permohonan penyidik Nomor: ', 'Menimbang, bahwa berdasarkan laporan dari Penyidik', 'Memberikan persetujuan penggeledahan', '2022-10-21', 'Nova Loura Sasube, S.H., M.H.', '19700128 199703 1 001', 'SELESAI', 'Ijin_Geledah.pdf', 'kepolisian_minahasa');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `ijin_penahanan`
 --
 
@@ -87,15 +78,6 @@ CREATE TABLE `ijin_penahanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ijin_penahanan`
---
-
-INSERT INTO `ijin_penahanan` (`id`, `no_perkara`, `nama`, `tempat_lahir`, `umur`, `tgl_lahir`, `kelamin`, `kebangsaan`, `tempat_tinggal`, `agama`, `pekerjaan`, `membaca`, `menimbang`, `menetapkan`, `tgl_ditetapkan`, `nama_ketua`, `nip`, `status`, `file`, `tujuan_kepolisian`) VALUES
-(1, '05/PHS/2022 Tnn', 'John Doe', 'Washington', 28, '2022-10-21', 'Laki-Laki', 'Indonesia', 'Jalan Las Vegas', 'None', 'Wirausaha', 'Membaca surat permohonan perpanjangan masa tahanan dari Penyidik                          RESOR MINAHASA Nomor : ………  tanggal   ……… atas nama Tersangka:', 'Tersangka ditahan dalam tahanan Rutan masing-masing oleh:\r\n1. Penyidik sejak tanggal ……… sampai dengan  tanggal ………; \r\n2. Perpanjangan Penuntut Umum sejak ……………… sampai dengan  tanggal ………;\r\n\r\n\r\nMenimbang, bahwa Tersangka telah disangka melakukan tindak pidana sebagaimana diatur dalam Pasal ………...\r\n\r\nMenimbang, bahwa untuk kepentingan penyidikan perlu memperpanjang masa tahanan Tersangka tersebut di atas;\r\n\r\nMemperhatikan ………   tentang Hukum Acara Pidana;\r\n', '1. Memperpanjang masa tahanan Tersangka ………dalam tahanan ……… paling lama ………, dihitung sejak tanggal  ……… s/d tanggal ………;\r\n\r\n2. Memerintahkan agar salinan penetapan ini segera disampaikan kepada Tersangka dan keluarganya.\r\n', '2022-10-21', 'Nova Loura Sasube, S.H., M.H.', '19700128 199703 1 001', 'SELESAI', 'Ijin_Perpanjangan_Penahanan.docx', 'kepolisian_minahasa');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `ijin_sita`
 --
 
@@ -121,15 +103,6 @@ CREATE TABLE `ijin_sita` (
   `file` varchar(250) DEFAULT NULL,
   `tujuan_kepolisian` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `ijin_sita`
---
-
-INSERT INTO `ijin_sita` (`id`, `no_perkara`, `nama`, `tempat_lahir`, `umur`, `tgl_lahir`, `kelamin`, `kebangsaan`, `tempat_tinggal`, `agama`, `pekerjaan`, `membaca`, `menimbang`, `menetapkan`, `tgl_ditetapkan`, `nama_ketua`, `nip`, `status`, `file`, `tujuan_kepolisian`) VALUES
-(1, '04/PHS/2022 Tnn', 'John Doe', 'Washington', 28, '2022-10-21', 'Laki-Laki', 'Indonesia', 'Jalan Las Vegas', 'None', 'Wirausaha', 'Membaca surat permohonan Penyidik RESOR MINAHASA Nomor ', 'Menimbang, bahwa berdasarkan laporan dari Penyidik ', 'Memberi persetujuan penyitaan ', '2022-10-21', 'Nova Loura Sasube, S.H., M.H.', '19700128 199703 1 001', 'SELESAI', 'ijin_sita.docx', 'kepolisian_minahasa');
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `penahanan_hakim`
@@ -160,15 +133,6 @@ CREATE TABLE `penahanan_hakim` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `penahanan_hakim`
---
-
-INSERT INTO `penahanan_hakim` (`id`, `no_perkara`, `nama`, `tempat_lahir`, `umur`, `tgl_lahir`, `kelamin`, `kebangsaan`, `tempat_tinggal`, `agama`, `pekerjaan`, `membaca`, `menimbang`, `menetapkan`, `tgl_ditetapkan`, `hakim_ketua`, `hakim_satu`, `hakim_dua`, `file`, `status`, `tujuan_lapas`) VALUES
-(1, '02/PHS/2022 Tnn', 'Albert Widum', 'Washington', 28, '2022-10-20', 'Laki-Laki', 'Indonesia', 'Jalan Las Vegas', 'None', 'Wirausaha', '<ol><li><span xss=removed>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English</span></li><li><span xss=removed>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</span><span xss=removed><br></span><br></li></ol>', 'Menimbang, bahwa terdakwa telah didakwa melakukan tindak pidana sebagaimana diatur dalam Pasal ', '<p><strong xss=removed>Lorem Ipsum</strong><span xss=removed> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</span><br></p>', '2022-10-20', 'Nova Laura Sasube, S.H., M.H.', 'Nur Dewi Sundari, S.H.', 'Dominggus Adrian Puturuhu, S.H., M.H.', 'Pen_Hakim1.pdf', 'TERVALIDASI', 'lapas_minahasa');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `penahanan_kpn`
 --
 
@@ -195,14 +159,6 @@ CREATE TABLE `penahanan_kpn` (
   `tujuan_lapas` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `penahanan_kpn`
---
-
-INSERT INTO `penahanan_kpn` (`id`, `no_perkara`, `nama`, `tempat_lahir`, `umur`, `tgl_lahir`, `kelamin`, `kebangsaan`, `tempat_tinggal`, `agama`, `pekerjaan`, `membaca`, `menimbang`, `menetapkan`, `tgl_ditetapkan`, `nama_ketua`, `file`, `status`, `tujuan_kejaksaan`, `tujuan_lapas`) VALUES
-(2, '03/PHS/2022 Tnn', 'john doe', 'Washington', 28, '2022-10-20', 'Laki-Laki', 'Indonesia', 'Jalan Las Vegas', 'None', 'Wirausaha', 'Terdakwa ditahan dalam Tahanan Rutan Lapas', 'Menimbang, bahwa terdakwa telah didakwa melakukan tindak pidana sebagaimana diatur dalam Pasal ', '<p><strong xss=removed>Lorem Ipsum</strong><span xss=removed> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500</span><br></p>', '2022-10-20', 'Nova Loura Sasube, S.H., M.H.', '<p>You did not select a file to upload.</p>', 'SELESAI', 'kejaksaan_minahasa', '');
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `penetapan_hs`
@@ -221,15 +177,6 @@ CREATE TABLE `penetapan_hs` (
   `status_hs` varchar(50) DEFAULT NULL,
   `tujuan_hs` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `penetapan_hs`
---
-
-INSERT INTO `penetapan_hs` (`id_hs`, `no_perkara`, `nama_terdakwa`, `membaca`, `tgl_menetapkan`, `wkt_menetapkan`, `tgl_ditetapkan`, `nama_hakim`, `file_hs`, `status_hs`, `tujuan_hs`) VALUES
-(1, '01/PHS/2022 Tnn', 'John Doe', '<ol><li>Bahwa yang bersangkutan sudah tidak lagi menjadi bagian warga negara indonesia</li><li>Berdasarkan Pasal 0 Ayat-Ayat Cinta nama yang disebutkan bukan  lah manusia</li></ol>', '2022-10-20', '14:47:00', '2022-10-20', 'Dewi Noor Alida, S.H., M.H.', 'Pen_Hari_Sidang.pdf', 'SELESAI', 'kejaksaan_minahasa');
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `petikan_putusan`
@@ -260,15 +207,6 @@ CREATE TABLE `petikan_putusan` (
   `tujuan_kejaksaan` varchar(50) DEFAULT NULL,
   `tujuan_lapas` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `petikan_putusan`
---
-
-INSERT INTO `petikan_putusan` (`id`, `no_perkara`, `nama`, `tempat_lahir`, `umur`, `tgl_lahir`, `kelamin`, `kebangsaan`, `tempat_tinggal`, `agama`, `pekerjaan`, `membaca`, `mengingat`, `mengadili`, `tgl_ditetapkan`, `hakim_ketua`, `hakim_satu`, `hakim_dua`, `panitera_pengganti`, `status`, `file`, `tujuan_kejaksaan`, `tujuan_lapas`) VALUES
-(1, '07/PHS/2022 Tnn', 'John Doe', 'Washington', 28, '2022-10-21', 'Laki-Laki', 'Indonesia', 'Jalan Las Vegas', 'None', 'Wirausaha', '1. Penyidik tidak dilakukan Penahanan  ', 'mengingat, bahwa terdakwa telah didakwa melakukan tindak pidana sebagaimana diatur dalam Pasal ', '<p><strong xss=removed>Lorem Ipsum</strong><span xss=removed> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</span><br></p>', '2022-10-21', 'Nova Laura Sasube, S.H., M.H.', 'Nur Dewi Sundari, S.H.', 'Dominggus Adrian Puturuhu, S.H., M.H.', 'Rietha V. Karouw, S.H.', 'SELESAI', NULL, 'kejaksaan_minahasa', 'lapas_minahasa');
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `user`
