@@ -97,7 +97,7 @@
             </p>
             <p class="text-indent text-justify">
                 Menimbang, bahwa setelah mempelajari uraian singkat kejadian perkara dan Berita Acara Penyitaan tanggal
-                [TANGGAL PENYITAAN] maka penyitaan tersebut cukup alasan untuk disetujui; Memperhatikan Pasal 38 ayat
+                <?= tanggal($data->tgl_ditetapkan) ?> maka penyitaan tersebut cukup alasan untuk disetujui; Memperhatikan Pasal 38 ayat
                 (2) Undang-Undang Nomor 8 tahun 1981 tentang Hukum Acara Pidana;
             </p>
             <p class="text-center text-uppercase fw-bold mt-4 space-alpha">

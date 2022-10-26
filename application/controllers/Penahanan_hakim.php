@@ -102,11 +102,11 @@ class Penahanan_hakim extends CI_Controller
 
     public function update($id)
     {
-        $penehananHakim = $this->db->get_where($this->table, ['id' => $id])->row();
-        $file        = $penehananHakim->file;
+        $penahananHakim = $this->db->get_where($this->table, ['id' => $id])->row();
+        $file  = $penahananHakim->file;
 
         if (!empty($_FILES["file"]["name"])) {
-            unlink($this->storage . "/" . $file);
+            unlink($this->storage . "/" . $penahananHakim->file);
             $file = $this->_upload();
         }
 
@@ -128,7 +128,7 @@ class Penahanan_hakim extends CI_Controller
             'hakim_ketua'    => $this->input->post('hakim_ketua', TRUE),
             'hakim_satu'     => $this->input->post('hakim_satu', TRUE),
             'hakim_dua'      => $this->input->post('hakim_dua', TRUE),
-            'file'           => $this->_upload(),
+            'file'           => $file,
         ];
 
         $this->db->where('id', $id)->update($this->table, $data);
