@@ -129,7 +129,15 @@ class Penetapan_hs extends CI_Controller
         $config['upload_path']   = $this->storage;
         $config['allowed_types'] = 'pdf|docx|doc';
 
+        // Create folder (Uploads) if not exists
+        if (!is_dir($config['upload_path'])) {
+            mkdir($config['upload_path']);
+        }
+
         $this->load->library('upload', $config);
+
+        // Initialize the Upload library with curront $config
+        $this->upload->initialize($config);
 
         if ($this->upload->do_upload('file_hs')) {
             return $this->upload->data('file_name');
