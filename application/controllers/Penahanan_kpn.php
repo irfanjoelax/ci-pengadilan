@@ -203,6 +203,17 @@ class Penahanan_kpn extends CI_Controller
         alert(ucwords('data Penahanan KPN berhasil dikirim'), site_url('penahanan_kpn'));
     }
 
+    public function berkas_tolak($id)
+    {
+        $data = [
+            'status' => 'DITOLAK',
+        ];
+
+        $this->db->where('id', $id)->update($this->table, $data);
+
+        alert(ucwords('data Penahanan KPN telah ditolak'), site_url('penahanan_kpn'));
+    }
+
     /**
      * CETAK => KEJAKSAAN & LAPAS LEVEL USER
      */

@@ -210,6 +210,17 @@ class Petikan_putusan extends CI_Controller
         alert(ucwords('data Petikan Putusan berhasil dikirim'), site_url('petikan_putusan'));
     }
 
+    public function berkas_tolak($id)
+    {
+        $data = [
+            'status' => 'DITOLAK',
+        ];
+
+        $this->db->where('id', $id)->update($this->table, $data);
+
+        alert(ucwords('data Petikan Putusan telah ditolak'), site_url('petikan_putusan'));
+    }
+
     /**
      * CETAK => KEJAKSAAN & LAPAS LEVEL USER
      */

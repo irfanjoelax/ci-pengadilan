@@ -184,6 +184,17 @@ class Ijin_sita extends CI_Controller
         alert(ucwords('data Ijin Sita berhasil dikirim'), site_url('ijin_sita'));
     }
 
+    public function berkas_tolak($id)
+    {
+        $data = [
+            'status' => 'DITOLAK',
+        ];
+
+        $this->db->where('id', $id)->update($this->table, $data);
+
+        alert(ucwords('data Ijin Sita telah ditolak'), site_url('ijin_sita'));
+    }
+
     /**
      * CETAK => kepolisian & LAPAS LEVEL USER
      */

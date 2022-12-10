@@ -50,41 +50,45 @@
                             <td width="3%">:</td>
                             <td width="80%"><?= $data->status ?></td>
                         </tr>
-                        <tr>
-                            <td width="17%">Tujuan</td>
-                            <td width="3%">:</td>
-                            <td width="80%">
-                                <?php
-                                if ($data->tujuan_kepolisian == null) {
-                                ?>
-                                    <form class="form-inline" action="<?= site_url('ijin_sita/update_tujuan/' . $data->id) ?>" method="POST" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <input type="file" class="form-control" name="file" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <select name="tujuan_kepolisian" class="form-control" required>
-                                                <option value="kepolisian_minahasa" selected>
-                                                    Kepolisian Minahasa
-                                                </option>
-                                                <option value="kepolisian_minahasa_tenggara">
-                                                    Kepolisian Minahasa Tenggara
-                                                </option>
-                                                <option value="kepolisian_tomohon">
-                                                    Kepolisian Tomohon
-                                                </option>
-                                            </select>
-                                        </div>
-                                        <button type="submit" class="btn btn-info">
-                                            Kirim Ketujuan
-                                        </button>
-                                    </form>
-                                <?php
-                                } else {
-                                    echo strtoupper(str_replace('_', ' ', $data->tujuan_kepolisian));
-                                }
-                                ?>
-                            </td>
-                        </tr>
+                        <?php if ($data->status != 'DITOLAK') : ?>
+                            <tr>
+                                <td width="17%">Tujuan</td>
+                                <td width="3%">:</td>
+                                <td width="80%">
+                                    <?php
+                                    if ($data->tujuan_kepolisian == null) {
+                                    ?>
+                                        <form class="form-inline" action="<?= site_url('ijin_sita/update_tujuan/' . $data->id) ?>" method="POST" enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <input type="file" class="form-control" name="file" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <select name="tujuan_kepolisian" class="form-control" required>
+                                                    <option value="kepolisian_minahasa" selected>
+                                                        Kepolisian Minahasa
+                                                    </option>
+                                                    <option value="kepolisian_minahasa_tenggara">
+                                                        Kepolisian Minahasa Tenggara
+                                                    </option>
+                                                    <option value="kepolisian_tomohon">
+                                                        Kepolisian Tomohon
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-info">
+                                                Kirim Ketujuan
+                                            </button>
+
+                                            <a href="<?= site_url('ijin_sita/berkas_tolak/' . $data->id) ?>" class="btn btn-danger">Tolak Berkas</a>
+                                        </form>
+                                    <?php
+                                    } else {
+                                        echo strtoupper(str_replace('_', ' ', $data->tujuan_kepolisian));
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                        <?php endif; ?>
                     </table>
                 </div>
             </div>

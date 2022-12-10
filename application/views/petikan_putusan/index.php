@@ -58,8 +58,10 @@
                                     <?php endif; ?>
 
                                     <?php if (in_array($level_user, $level_array)) : ?>
-                                        <?= button_print('petikan_putusan/print/' . $row->id) ?>
+                                        <?php // button_print('petikan_putusan/print/' . $row->id) 
+                                        ?>
                                         <?= button_download('asset/petikan-putusan/' . $row->file) ?>
+                                        <?= button_show('petikan_putusan/show/' . $row->id) ?>
                                     <?php endif; ?>
 
                                     <?php if ($level_user == 'admin') : ?>

@@ -55,15 +55,18 @@
                             <td width="80%"><?= $data->status ?></td>
                         </tr>
                         <?php if ($this->session->userdata('level_user') == 'panitera_pengganti') : ?>
-                            <tr>
-                                <td width="17%">Validasi</td>
-                                <td width="3%">:</td>
-                                <td width="80%">
-                                    <a href="<?= site_url('penahanan_kpn/validasi/' . $data->id) ?>" class="btn btn-info">
-                                        Validasi Selesai
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php if ($data->status != 'DITOLAK') : ?>
+                                <tr>
+                                    <td width="17%">Validasi</td>
+                                    <td width="3%">:</td>
+                                    <td width="80%">
+                                        <a href="<?= site_url('penahanan_kpn/validasi/' . $data->id) ?>" class="btn btn-info">
+                                            Validasi Selesai
+                                        </a>
+                                        <a href="<?= site_url('penahanan_kpn/berkas_tolak/' . $data->id) ?>" class="btn btn-danger">Tolak Berkas</a>
+                                    </td>
+                                </tr>
+                            <?php endif; ?>
                         <?php endif; ?>
                         <?php if ($this->session->userdata('level_user') == 'ketua_pn') : ?>
                             <tr>
@@ -105,9 +108,11 @@
                                                     </option>
                                                 </select>
                                             </div>
+
                                             <button type="submit" class="btn btn-info" style="margin-top: 1rem;">
                                                 Kirim Ketujuan
                                             </button>
+
                                         </form>
                                     <?php
                                     } else {

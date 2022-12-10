@@ -18,12 +18,17 @@ class Penetapan_hs extends CI_Controller
     public function index()
     {
         $level_user = $this->session->userdata('level_user');
+
         $level_kejaksaan = [
             'kejaksaan_minahasa', 'kejaksaan_minahasa_selatan', 'kejaksaan_tomohon'
         ];
 
         if (in_array($level_user, $level_kejaksaan)) {
             $this->db->where('tujuan_hs', $level_user);
+        }
+
+        if ($level_user != 'admin') {
+            $this->db->where('status_hs !=', 'DITOLAK');
         }
 
         $data = $this->db->order_by('id_hs', 'DESC')->get($this->table)->result();
@@ -172,6 +177,28 @@ class Penetapan_hs extends CI_Controller
         $this->db->where('id_hs', $id)->update($this->table, $data);
 
         alert(ucwords('data penetapan hari sidang berhasil divalidasi'), site_url('penetapan_hs'));
+    }
+
+    public function validasi_pp($id)
+    {
+        $data = [
+            'status_hs' => 'Validasi PP',
+        ];
+
+        $this->db->where('id_hs', $id)->update($this->table, $data);
+
+        alert(ucwords('data penetapan hari sidang telah divalidasi PP'), site_url('penetapan_hs'));
+    }
+
+    public function berkas_tolak($id)
+    {
+        $data = [
+            'status_hs' => 'DITOLAK',
+        ];
+
+        $this->db->where('id_hs', $id)->update($this->table, $data);
+
+        alert(ucwords('data penetapan hari sidang telah ditolak'), site_url('penetapan_hs'));
     }
 
     /**

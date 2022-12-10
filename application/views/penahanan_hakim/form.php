@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <div class="box-footer">
-                    <?= button_back('penetapan_hs') ?>
+                    <?= button_back('penahanan_hakim') ?>
                     <button type="submit" class="btn btn-success pull-right">
                         Simpan Data
                     </button>

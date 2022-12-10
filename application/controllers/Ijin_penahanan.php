@@ -184,6 +184,17 @@ class Ijin_penahanan extends CI_Controller
         alert(ucwords('data Ijin Penahanan berhasil dikirim'), site_url('ijin_penahanan'));
     }
 
+    public function berkas_tolak($id)
+    {
+        $data = [
+            'status' => 'DITOLAK',
+        ];
+
+        $this->db->where('id', $id)->update($this->table, $data);
+
+        alert(ucwords('data Ijin Penahanan telah ditolak'), site_url('ijin_penahanan'));
+    }
+
     /**
      * CETAK => kepolisian & LAPAS LEVEL USER
      */

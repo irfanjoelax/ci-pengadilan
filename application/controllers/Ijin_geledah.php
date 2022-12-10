@@ -184,6 +184,17 @@ class Ijin_geledah extends CI_Controller
         alert(ucwords('data Ijin geledah berhasil dikirim'), site_url('ijin_geledah'));
     }
 
+    public function berkas_tolak($id)
+    {
+        $data = [
+            'status' => 'DITOLAK',
+        ];
+
+        $this->db->where('id', $id)->update($this->table, $data);
+
+        alert(ucwords('data Ijin geledah telah ditolak'), site_url('ijin_geledah'));
+    }
+
     /**
      * CETAK => kepolisian & LAPAS LEVEL USER
      */

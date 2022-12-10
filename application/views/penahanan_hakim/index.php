@@ -31,6 +31,9 @@
                                 <td class="text-center"><?= $row->status ?></td>
                                 <td class="text-center">
                                     <span class="label label-default">
+                                        <?= strtoupper(str_replace('_', ' ', $row->tujuan_kejaksaan)) ?>
+                                    </span> <br>
+                                    <span class="label label-default">
                                         <?= strtoupper(str_replace('_', ' ', $row->tujuan_lapas)) ?>
                                     </span>
                                 </td>
@@ -38,15 +41,22 @@
                                     <?php
                                     $level_user = $this->session->userdata('level_user');
                                     $level_array = [
-                                        'lapas_minahasa', 'rutan_minahasa_selatan', 'lapas_tomohon'
+                                        'kejaksaan_minahasa',
+                                        'kejaksaan_minahasa_selatan',
+                                        'kejaksaan_tomohon',
+                                        'lapas_minahasa',
+                                        'rutan_minahasa_selatan',
+                                        'lapas_tomohon'
                                     ];
 
                                     if (in_array($level_user, $level_array)) : ?>
                                         <?= button_download('asset/penahanan-hakim/' . $row->file) ?>
-                                        <?= button_print('penahanan_hakim/print/' . $row->id) ?>
+                                        <?php // button_print('penahanan_hakim/print/' . $row->id) 
+                                        ?>
+                                        <?= button_show('penahanan_hakim/show/' . $row->id) ?>
                                     <?php endif; ?>
 
-                                    <?php if ($this->session->userdata('level_user') == 'panitera_pengganti') : ?>
+                                    <?php if ($level_user == 'panitera_pengganti' or $level_user == 'majelis_hakim') : ?>
                                         <?= button_show('penahanan_hakim/show/' . $row->id) ?>
                                         <?= button_download('asset/penahanan-hakim/' . $row->file) ?>
                                     <?php endif; ?>

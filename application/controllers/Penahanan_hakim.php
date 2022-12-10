@@ -26,6 +26,10 @@ class Penahanan_hakim extends CI_Controller
             $this->db->where('tujuan_lapas', $level_user);
         }
 
+        if ($level_user != 'admin') {
+            $this->db->where('status !=', 'DITOLAK');
+        }
+
         $data = $this->db->order_by('id', 'DESC')->get($this->table)->result();
 
         $this->load->view('penahanan_hakim/index', [
@@ -185,13 +189,37 @@ class Penahanan_hakim extends CI_Controller
     public function update_tujuan($id)
     {
         $data = [
-            'status'       => 'TERVALIDASI',
-            'tujuan_lapas' => $this->input->post('tujuan_lapas', TRUE),
+            'file'             => $this->_upload(),
+            'status'           => 'TERVALIDASI',
+            'tujuan_kejaksaan' => $this->input->post('tujuan_kejaksaan', TRUE),
+            'tujuan_lapas'     => $this->input->post('tujuan_lapas', TRUE),
         ];
 
         $this->db->where('id', $id)->update($this->table, $data);
 
         alert(ucwords('data penahanan hakim berhasil divalidasi'), site_url('penahanan_hakim'));
+    }
+
+    public function berkas_tolak($id)
+    {
+        $data = [
+            'status' => 'DITOLAK',
+        ];
+
+        $this->db->where('id', $id)->update($this->table, $data);
+
+        alert(ucwords('data penahanan hakim telah ditolak'), site_url('penahanan_hakim'));
+    }
+
+    public function validasi_pp($id)
+    {
+        $data = [
+            'status' => 'Validasi PP',
+        ];
+
+        $this->db->where('id', $id)->update($this->table, $data);
+
+        alert(ucwords('data penahanan hakim sidang telah divalidasi PP'), site_url('penahanan_hakim'));
     }
 
     /**
