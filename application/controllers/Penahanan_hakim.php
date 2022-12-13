@@ -190,7 +190,7 @@ class Penahanan_hakim extends CI_Controller
     {
         $data = [
             'file'             => $this->_upload(),
-            'status'           => 'TERVALIDASI',
+            'status'           => 'SELESAI',
             'tujuan_kejaksaan' => $this->input->post('tujuan_kejaksaan', TRUE),
             'tujuan_lapas'     => $this->input->post('tujuan_lapas', TRUE),
         ];

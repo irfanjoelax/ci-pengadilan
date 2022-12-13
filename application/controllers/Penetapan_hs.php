@@ -170,7 +170,8 @@ class Penetapan_hs extends CI_Controller
     public function update_tujuan($id)
     {
         $data = [
-            'status_hs' => 'TERVALIDASI',
+            'file_hs'   => $this->_upload(),
+            'status_hs' => 'SELESAI',
             'tujuan_hs' => $this->input->post('tujuan_hs', TRUE),
         ];
 

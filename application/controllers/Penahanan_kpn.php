@@ -35,6 +35,10 @@ class Penahanan_kpn extends CI_Controller
             $this->db->where('tujuan_lapas', $level_user);
         }
 
+        if ($level_user != 'admin') {
+            $this->db->where('status !=', 'DITOLAK');
+        }
+
         $data = $this->db->order_by('id', 'DESC')->get($this->table)->result();
 
         $this->load->view('penahanan_kpn/index', [

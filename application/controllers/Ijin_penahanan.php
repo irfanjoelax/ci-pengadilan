@@ -27,6 +27,10 @@ class Ijin_penahanan extends CI_Controller
             $this->db->where('tujuan_kepolisian', $level_user);
         }
 
+        if ($level_user != 'admin') {
+            $this->db->where('status !=', 'DITOLAK');
+        }
+
         $data = $this->db->order_by('id', 'DESC')->get($this->table)->result();
 
         $this->load->view('ijin_penahanan/index', [

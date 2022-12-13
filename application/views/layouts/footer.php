@@ -6,7 +6,7 @@
         Copyright &copy; <?= date('Y') ?> <span class="text-success"><?= COPYRIGHT ?></span>
     </strong>
     <div class="pull-right hidden-xs">
-        <b>Version</b> 2.0.0
+        <b>Version</b> 3.0.0
     </div>
 </footer>
 </div>

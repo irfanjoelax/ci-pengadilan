@@ -64,8 +64,7 @@
                             <td width="3%">:</td>
                             <td width="80%"><?= $data->status ?></td>
                         </tr>
-                        <?php if ($data->status != 'DITOLAK') : ?>
-
+                        <?php if ($data->status === 'PROSES') : ?>
                             <?php if ($this->session->userdata('level_user') == 'panitera_pengganti') : ?>
                                 <tr>
                                     <td width="17%">Validasi</td>
@@ -73,13 +72,15 @@
                                     <td width="80%">
                                         <a href="<?= site_url('penahanan_hakim/validasi_pp/' . $data->id) ?>" class="btn btn-info">Validasi Selesai</a>
 
-                                        <?php if ($data->status === 'VALIDASI PP') : ?>
+                                        <?php if ($data->status === 'PROSES') : ?>
                                             <a href="<?= site_url('penahanan_hakim/berkas_tolak/' . $data->id) ?>" class="btn btn-danger">Tolak Berkas</a>
                                         <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endif; ?>
+                        <?php endif; ?>
 
+                        <?php if ($data->status === 'Validasi PP') : ?>
                             <?php if ($this->session->userdata('level_user') == 'majelis_hakim') : ?>
                                 <tr>
                                     <td width="17%">Tujuan</td>
