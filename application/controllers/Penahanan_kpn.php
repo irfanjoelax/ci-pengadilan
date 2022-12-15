@@ -19,6 +19,15 @@ class Penahanan_kpn extends CI_Controller
     {
         $level_user = $this->session->userdata('level_user');
 
+        if ($level_user != 'admin') {
+            $this->db->where('status !=', 'DITOLAK');
+        }
+
+        if ($level_user == 'ketua_pn') {
+            $this->db->where('status', 'Validasi PP');
+            $this->db->or_where('status', 'SELESAI');
+        }
+
         $level_kejaksaan = [
             'kejaksaan_minahasa', 'kejaksaan_minahasa_selatan', 'kejaksaan_tomohon'
         ];
@@ -33,10 +42,6 @@ class Penahanan_kpn extends CI_Controller
 
         if (in_array($level_user, $level_lapas)) {
             $this->db->where('tujuan_lapas', $level_user);
-        }
-
-        if ($level_user != 'admin') {
-            $this->db->where('status !=', 'DITOLAK');
         }
 
         $data = $this->db->order_by('id', 'DESC')->get($this->table)->result();
@@ -185,7 +190,7 @@ class Penahanan_kpn extends CI_Controller
     public function validasi($id)
     {
         $data = [
-            'status' => 'TERVALIDASI',
+            'status' => 'Validasi PP',
         ];
 
         $this->db->where('id', $id)->update($this->table, $data);

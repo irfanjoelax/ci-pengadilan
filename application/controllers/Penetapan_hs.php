@@ -27,6 +27,14 @@ class Penetapan_hs extends CI_Controller
             $this->db->where('tujuan_hs', $level_user);
         }
 
+        $level_lapas = [
+            'lapas_minahasa', 'rutan_minahasa_selatan', 'lapas_tomohon'
+        ];
+
+        if (in_array($level_user, $level_lapas)) {
+            $this->db->where('tujuan_hs', $level_user);
+        }
+
         if ($level_user != 'admin') {
             $this->db->where('status_hs !=', 'DITOLAK');
         }

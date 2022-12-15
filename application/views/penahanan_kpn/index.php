@@ -49,9 +49,15 @@
                                         'lapas_tomohon'
                                     ];
                                     ?>
-                                    <?php if ($level_user == 'panitera_pengganti' or $level_user == 'ketua_pn') : ?>
+                                    <?php if ($level_user == 'panitera_pengganti') : ?>
                                         <?= button_show('penahanan_kpn/show/' . $row->id) ?>
                                         <?php // button_print('penahanan_kpn/print/' . $row->id) 
+                                        ?>
+                                    <?php endif; ?>
+
+                                    <?php if ($level_user == 'ketua_pn') : ?>
+                                        <?= button_show('penahanan_kpn/show/' . $row->id) ?>
+                                        <?= button_print('penahanan_kpn/print/' . $row->id)
                                         ?>
                                     <?php endif; ?>
 

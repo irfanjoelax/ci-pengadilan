@@ -47,15 +47,19 @@
                                     ];
 
                                     if (in_array($level_user, $level_array)) : ?>
-                                        <?php // button_print('penetapan_hs/print/' . $row->id_hs) 
-                                        ?>
+
                                         <?= button_show('penetapan_hs/show/' . $row->id_hs) ?>
                                         <?= button_download('asset/penetapan-hs/' . $row->file_hs) ?>
                                     <?php endif; ?>
 
-                                    <?php if ($level_user == 'panitera_pengganti' or $level_user == 'majelis_hakim') : ?>
+                                    <?php if ($level_user == 'panitera_pengganti') : ?>
                                         <?= button_show('penetapan_hs/show/' . $row->id_hs) ?>
                                         <?= button_download('asset/penetapan-hs/' . $row->file_hs) ?>
+                                    <?php endif; ?>
+
+                                    <?php if ($level_user == 'majelis_hakim') : ?>
+                                        <?= button_show('penetapan_hs/show/' . $row->id_hs) ?>
+                                        <?= button_print('penetapan_hs/print/' . $row->id_hs) ?>
                                     <?php endif; ?>
 
                                     <?php if ($level_user == 'admin') : ?>

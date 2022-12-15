@@ -18,6 +18,15 @@ class Penahanan_hakim extends CI_Controller
     public function index()
     {
         $level_user = $this->session->userdata('level_user');
+
+        $level_kejaksaan = [
+            'kejaksaan_minahasa', 'kejaksaan_minahasa_selatan', 'kejaksaan_tomohon'
+        ];
+
+        if (in_array($level_user, $level_kejaksaan)) {
+            $this->db->where('tujuan_kejaksaan', $level_user);
+        }
+
         $level_lapas = [
             'lapas_minahasa', 'rutan_minahasa_selatan', 'lapas_tomohon'
         ];

@@ -126,8 +126,6 @@
                                                 <button type="submit" class="btn btn-info" style="margin-top: .75rem;">
                                                     Validasi Selesai
                                                 </button>
-
-                                                <a style="margin-top: .75rem;" href="<?= site_url('penahanan_hakim/berkas_tolak/' . $data->id) ?>" class="btn btn-danger">Tolak Berkas</a>
                                             </form>
                                         <?php
                                         } else {

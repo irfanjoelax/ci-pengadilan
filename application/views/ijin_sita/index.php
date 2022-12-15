@@ -49,8 +49,7 @@
                                     <?php endif; ?>
 
                                     <?php if ($level_user == 'ketua_pn') : ?>
-                                        <?php // button_print('ijin_sita/print/' . $row->id) 
-                                        ?>
+                                        <?= button_print('ijin_sita/print/' . $row->id) ?>
                                         <?= button_show('ijin_sita/show/' . $row->id) ?>
                                     <?php endif; ?>
 

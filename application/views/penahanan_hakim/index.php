@@ -56,9 +56,14 @@
                                         <?= button_show('penahanan_hakim/show/' . $row->id) ?>
                                     <?php endif; ?>
 
-                                    <?php if ($level_user == 'panitera_pengganti' or $level_user == 'majelis_hakim') : ?>
+                                    <?php if ($level_user == 'panitera_pengganti') : ?>
                                         <?= button_show('penahanan_hakim/show/' . $row->id) ?>
                                         <?= button_download('asset/penahanan-hakim/' . $row->file) ?>
+                                    <?php endif; ?>
+
+                                    <?php if ($level_user == 'majelis_hakim') : ?>
+                                        <?= button_show('penahanan_hakim/show/' . $row->id) ?>
+                                        <?= button_print('penahanan_hakim/print/' . $row->id) ?>
                                     <?php endif; ?>
 
                                     <?php if ($this->session->userdata('level_user') == 'admin') : ?>

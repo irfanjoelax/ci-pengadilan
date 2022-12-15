@@ -95,8 +95,6 @@
                                                 <button type="submit" class="btn btn-info">
                                                     Validasi Selesai
                                                 </button>
-
-                                                <a href="<?= site_url('penetapan_hs/berkas_tolak/' . $data->id_hs) ?>" class="btn btn-danger">Tolak Berkas</a>
                                             </form>
                                         <?php
                                         } else {
