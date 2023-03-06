@@ -56,12 +56,29 @@ class Ijin_penahanan extends CI_Controller
             'subheader'  => 'Harap Masukkan data Ijin Penahanan dengan lengkap dan benar',
             'isEdit'     => false,
             'url'        => site_url('ijin_penahanan/store'),
+            'nomor'      => $this->nomor(),
             'summernote' => true
         ]);
     }
 
+    public function nomor()
+    {
+        $urutan = $this->db->get($this->table)->num_rows();
+
+        $urutan++;
+
+        $no_perkara = sprintf("%03s", $urutan);
+        $no_perkara .= '/IP';
+        $no_perkara .= '/' . date('m');
+        $no_perkara .= '/' . date('Y');
+
+        return $no_perkara;
+    }
+
     public function store()
     {
+        $waktu_tunggu = date('Y-m-d');
+
         $data = [
             'no_perkara'        => $this->input->post('no_perkara', TRUE),
             'nama'              => $this->input->post('nama', TRUE),
@@ -82,6 +99,7 @@ class Ijin_penahanan extends CI_Controller
             'file'              => null,
             'status'            => 'PROSES',
             'tujuan_kepolisian' => null,
+            'waktu_tunggu'   => date('Y-m-d', strtotime("$waktu_tunggu +7 day"))
         ];
 
         $this->db->insert($this->table, $data);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 21, 2022 at 04:02 AM
+-- Generation Time: Mar 06, 2023 at 07:35 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -47,8 +47,11 @@ CREATE TABLE `ijin_geledah` (
   `nip` varchar(50) DEFAULT NULL,
   `status` varchar(50) DEFAULT NULL,
   `file` varchar(250) DEFAULT NULL,
-  `tujuan_kepolisian` varchar(50) DEFAULT NULL
+  `tujuan_kepolisian` varchar(50) DEFAULT NULL,
+  `waktu_tunggu` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `ijin_penahanan`
@@ -74,8 +77,11 @@ CREATE TABLE `ijin_penahanan` (
   `nip` varchar(50) DEFAULT NULL,
   `status` varchar(50) DEFAULT NULL,
   `file` varchar(250) DEFAULT NULL,
-  `tujuan_kepolisian` varchar(50) DEFAULT NULL
+  `tujuan_kepolisian` varchar(50) DEFAULT NULL,
+  `waktu_tunggu` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `ijin_sita`
@@ -101,8 +107,11 @@ CREATE TABLE `ijin_sita` (
   `nip` varchar(50) DEFAULT NULL,
   `status` varchar(50) DEFAULT NULL,
   `file` varchar(250) DEFAULT NULL,
-  `tujuan_kepolisian` varchar(50) DEFAULT NULL
+  `tujuan_kepolisian` varchar(50) DEFAULT NULL,
+  `waktu_tunggu` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `penahanan_hakim`
@@ -129,8 +138,12 @@ CREATE TABLE `penahanan_hakim` (
   `hakim_dua` varchar(150) DEFAULT NULL,
   `file` varchar(250) DEFAULT NULL,
   `status` varchar(50) DEFAULT NULL,
-  `tujuan_lapas` varchar(50) DEFAULT NULL
+  `tujuan_kejaksaan` varchar(50) DEFAULT NULL,
+  `tujuan_lapas` varchar(50) DEFAULT NULL,
+  `waktu_tunggu` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `penahanan_kpn`
@@ -156,9 +169,11 @@ CREATE TABLE `penahanan_kpn` (
   `file` varchar(250) DEFAULT NULL,
   `status` varchar(50) DEFAULT NULL,
   `tujuan_kejaksaan` varchar(50) DEFAULT NULL,
-  `tujuan_lapas` varchar(50) DEFAULT NULL
+  `tujuan_lapas` varchar(50) DEFAULT NULL,
+  `waktu_tunggu` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `penetapan_hs`
@@ -175,8 +190,11 @@ CREATE TABLE `penetapan_hs` (
   `nama_hakim` varchar(200) DEFAULT NULL,
   `file_hs` varchar(250) DEFAULT NULL,
   `status_hs` varchar(50) DEFAULT NULL,
-  `tujuan_hs` varchar(50) DEFAULT NULL
+  `tujuan_hs` varchar(50) DEFAULT NULL,
+  `waktu_tunggu` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `petikan_putusan`
@@ -205,8 +223,11 @@ CREATE TABLE `petikan_putusan` (
   `status` varchar(50) DEFAULT NULL,
   `file` varchar(250) DEFAULT NULL,
   `tujuan_kejaksaan` varchar(50) DEFAULT NULL,
-  `tujuan_lapas` varchar(50) DEFAULT NULL
+  `tujuan_lapas` varchar(50) DEFAULT NULL,
+  `waktu_tunggu` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `user`
@@ -323,13 +344,13 @@ ALTER TABLE `penahanan_hakim`
 -- AUTO_INCREMENT for table `penahanan_kpn`
 --
 ALTER TABLE `penahanan_kpn`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `penetapan_hs`
 --
 ALTER TABLE `penetapan_hs`
-  MODIFY `id_hs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_hs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `petikan_putusan`

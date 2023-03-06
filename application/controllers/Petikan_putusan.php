@@ -60,12 +60,29 @@ class Petikan_putusan extends CI_Controller
             'subheader'  => 'Harap Masukkan data Petikan Putusan dengan lengkap dan benar',
             'isEdit'     => false,
             'url'        => site_url('petikan_putusan/store'),
+            'nomor'      => $this->nomor(),
             'summernote' => true
         ]);
     }
 
+    public function nomor()
+    {
+        $urutan = $this->db->get($this->table)->num_rows();
+
+        $urutan++;
+
+        $no_perkara = sprintf("%03s", $urutan);
+        $no_perkara .= '/PTP';
+        $no_perkara .= '/' . date('m');
+        $no_perkara .= '/' . date('Y');
+
+        return $no_perkara;
+    }
+
     public function store()
     {
+        $waktu_tunggu = date('Y-m-d');
+
         $data = [
             'no_perkara'         => $this->input->post('no_perkara', TRUE),
             'nama'               => $this->input->post('nama', TRUE),
@@ -89,6 +106,7 @@ class Petikan_putusan extends CI_Controller
             'status'             => 'PROSES',
             'tujuan_kejaksaan'   => null,
             'tujuan_lapas'       => null,
+            'waktu_tunggu'   => date('Y-m-d', strtotime("$waktu_tunggu +7 day"))
         ];
 
         $this->db->insert($this->table, $data);

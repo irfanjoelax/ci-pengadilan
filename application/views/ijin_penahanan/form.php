@@ -7,7 +7,7 @@
                     <div class="form-group">
                         <label for="no_perkara" class="col-sm-2 control-label">No. Perkara</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="no_perkara" value="<?= ($isEdit) ? $data->no_perkara : '' ?>" required>
+                            <input type="text" class="form-control" name="no_perkara" value="<?= ($isEdit) ? $data->no_perkara : $nomor ?>" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -127,7 +127,7 @@ Memperhatikan ………   tentang Hukum Acara Pidana;
                     </div>
                 </div>
                 <div class="box-footer">
-                    <?= button_back('ijin_sita') ?>
+                    <?= button_back('ijin_penahanan') ?>
                     <button type="submit" class="btn btn-success pull-right">
                         Simpan Data
                     </button>

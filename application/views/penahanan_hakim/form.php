@@ -7,7 +7,7 @@
                     <div class="form-group">
                         <label for="no_perkara" class="col-sm-2 control-label">No. Perkara</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="no_perkara" value="<?= ($isEdit) ? $data->no_perkara : '' ?>" required>
+                            <input type="text" class="form-control" name="no_perkara" value="<?= ($isEdit) ? $data->no_perkara : $nomor ?>" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -97,19 +97,73 @@
                     <div class="form-group">
                         <label for="hakim_ketua" class="col-sm-2 control-label">Hakim Ketua</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="hakim_ketua" value="<?= ($isEdit) ? $data->hakim_ketua : '' ?>" required>
+                            <select name="hakim_ketua" class="form-control" required>
+                                <?php if (!$isEdit) : ?>
+                                    <option value="" selected>Pilih Nama Hakim..</option>
+                                <?php endif; ?>
+
+                                <option value="NOVA LOURA SASUBE, S.H., M.H" <?php if ($isEdit) echo ($data->hakim_ketua == 'NOVA LOURA SASUBE, S.H., M.H') ? 'selected' : '' ?>>NOVA LOURA SASUBE, S.H., M.H</option>
+
+                                <option value="ERNEST JANES ULAEN, S.H., MH" <?php if ($isEdit) echo ($data->hakim_ketua == 'ERNEST JANES ULAEN, S.H., MH') ? 'selected' : '' ?>>ERNEST JANES ULAEN, S.H., MH</option>
+
+                                <option value="ANITA REGINA GIGIR, S.H" <?php if ($isEdit) echo ($data->hakim_ketua == 'ANITA REGINA GIGIR, S.H') ? 'selected' : '' ?>>ANITA REGINA GIGIR, S.H</option>
+
+                                <option value="CHRYSTYANE PAULA KAURONG, S.H., M.HUM" <?php if ($isEdit) echo ($data->hakim_ketua == 'CHRYSTYANE PAULA KAURONG, S.H., M.HUM') ? 'selected' : '' ?>>CHRYSTYANE PAULA KAURONG, S.H., M.HUM</option>
+
+                                <option value="DOMINGGUS ADRIAN PUTURUHU, S.H" <?php if ($isEdit) echo ($data->hakim_ketua == 'DOMINGGUS ADRIAN PUTURUHU, S.H') ? 'selected' : '' ?>>DOMINGGUS ADRIAN PUTURUHU, S.H</option>
+
+                                <option value="NUR DEWI SUNDAR, S.H., M.H" <?php if ($isEdit) echo ($data->hakim_ketua == 'NUR DEWI SUNDAR, S.H., M.H') ? 'selected' : '' ?>>NUR DEWI SUNDAR, S.H., M.H</option>
+
+                                <option value="STEVEN CHRISTIAN WALUKOW. S.H" <?php if ($isEdit) echo ($data->hakim_ketua == 'STEVEN CHRISTIAN WALUKOW. S.H') ? 'selected' : '' ?>>STEVEN CHRISTIAN WALUKOW. S.H</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="hakim_satu" class="col-sm-2 control-label">Hakim Anggota (1)</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="hakim_satu" value="<?= ($isEdit) ? $data->hakim_satu : '' ?>" required>
+                            <select name="hakim_satu" class="form-control" required>
+                                <?php if (!$isEdit) : ?>
+                                    <option value="" selected>Pilih Nama Hakim..</option>
+                                <?php endif; ?>
+
+                                <option value="NOVA LOURA SASUBE, S.H., M.H" <?php if ($isEdit) echo ($data->hakim_satu == 'NOVA LOURA SASUBE, S.H., M.H') ? 'selected' : '' ?>>NOVA LOURA SASUBE, S.H., M.H</option>
+
+                                <option value="ERNEST JANES ULAEN, S.H., MH" <?php if ($isEdit) echo ($data->hakim_satu == 'ERNEST JANES ULAEN, S.H., MH') ? 'selected' : '' ?>>ERNEST JANES ULAEN, S.H., MH</option>
+
+                                <option value="ANITA REGINA GIGIR, S.H" <?php if ($isEdit) echo ($data->hakim_satu == 'ANITA REGINA GIGIR, S.H') ? 'selected' : '' ?>>ANITA REGINA GIGIR, S.H</option>
+
+                                <option value="CHRYSTYANE PAULA KAURONG, S.H., M.HUM" <?php if ($isEdit) echo ($data->hakim_satu == 'CHRYSTYANE PAULA KAURONG, S.H., M.HUM') ? 'selected' : '' ?>>CHRYSTYANE PAULA KAURONG, S.H., M.HUM</option>
+
+                                <option value="DOMINGGUS ADRIAN PUTURUHU, S.H" <?php if ($isEdit) echo ($data->hakim_satu == 'DOMINGGUS ADRIAN PUTURUHU, S.H') ? 'selected' : '' ?>>DOMINGGUS ADRIAN PUTURUHU, S.H</option>
+
+                                <option value="NUR DEWI SUNDAR, S.H., M.H" <?php if ($isEdit) echo ($data->hakim_satu == 'NUR DEWI SUNDAR, S.H., M.H') ? 'selected' : '' ?>>NUR DEWI SUNDAR, S.H., M.H</option>
+
+                                <option value="STEVEN CHRISTIAN WALUKOW. S.H" <?php if ($isEdit) echo ($data->hakim_satu == 'STEVEN CHRISTIAN WALUKOW. S.H') ? 'selected' : '' ?>>STEVEN CHRISTIAN WALUKOW. S.H</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="hakim_dua" class="col-sm-2 control-label">Hakim Anggota (2)</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="hakim_dua" value="<?= ($isEdit) ? $data->hakim_dua : '' ?>" required>
+                            <select name="hakim_dua" class="form-control" required>
+                                <?php if (!$isEdit) : ?>
+                                    <option value="" selected>Pilih Nama Hakim..</option>
+                                <?php endif; ?>
+
+                                <option value="NOVA LOURA SASUBE, S.H., M.H" <?php if ($isEdit) echo ($data->hakim_dua == 'NOVA LOURA SASUBE, S.H., M.H') ? 'selected' : '' ?>>NOVA LOURA SASUBE, S.H., M.H</option>
+
+                                <option value="ERNEST JANES ULAEN, S.H., MH" <?php if ($isEdit) echo ($data->hakim_dua == 'ERNEST JANES ULAEN, S.H., MH') ? 'selected' : '' ?>>ERNEST JANES ULAEN, S.H., MH</option>
+
+                                <option value="ANITA REGINA GIGIR, S.H" <?php if ($isEdit) echo ($data->hakim_dua == 'ANITA REGINA GIGIR, S.H') ? 'selected' : '' ?>>ANITA REGINA GIGIR, S.H</option>
+
+                                <option value="CHRYSTYANE PAULA KAURONG, S.H., M.HUM" <?php if ($isEdit) echo ($data->hakim_dua == 'CHRYSTYANE PAULA KAURONG, S.H., M.HUM') ? 'selected' : '' ?>>CHRYSTYANE PAULA KAURONG, S.H., M.HUM</option>
+
+                                <option value="DOMINGGUS ADRIAN PUTURUHU, S.H" <?php if ($isEdit) echo ($data->hakim_dua == 'DOMINGGUS ADRIAN PUTURUHU, S.H') ? 'selected' : '' ?>>DOMINGGUS ADRIAN PUTURUHU, S.H</option>
+
+                                <option value="NUR DEWI SUNDAR, S.H., M.H" <?php if ($isEdit) echo ($data->hakim_dua == 'NUR DEWI SUNDAR, S.H., M.H') ? 'selected' : '' ?>>NUR DEWI SUNDAR, S.H., M.H</option>
+
+                                <option value="STEVEN CHRISTIAN WALUKOW. S.H" <?php if ($isEdit) echo ($data->nama_hakim == 'STEVEN CHRISTIAN WALUKOW. S.H') ? 'selected' : '' ?>>STEVEN CHRISTIAN WALUKOW. S.H</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">

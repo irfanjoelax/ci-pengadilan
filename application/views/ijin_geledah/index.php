@@ -19,6 +19,7 @@
                             <th class="text-center" width="30%">Nama Terdakwa</th>
                             <th class="text-center" width="10%">Status</th>
                             <th class="text-center" width="15%">Tujuan</th>
+                            <th class="text-center" width="15%">Waktu Tunggu</th>
                             <th class="text-center" width="15%">Actions</th>
                         </tr>
                     </thead>
@@ -34,6 +35,7 @@
                                         <?= strtoupper(str_replace('_', ' ', $row->tujuan_kepolisian)) ?>
                                     </span>
                                 </td>
+                                <td class="text-center"><?= diffdate(date('Y-m-d'), $row->waktu_tunggu) ?> hari lagi</td>
                                 <td class=" text-center">
                                     <?php
                                     $level_user = $this->session->userdata('level_user');

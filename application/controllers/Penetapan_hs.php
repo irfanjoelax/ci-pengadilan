@@ -64,12 +64,29 @@ class Penetapan_hs extends CI_Controller
             'subheader'  => 'Harap Masukkan data penetapan hari sidang dengan lengkap dan benar',
             'isEdit'     => false,
             'url'        => site_url('penetapan_hs/store'),
-            'summernote' => true
+            'summernote' => true,
+            'nomor'      => $this->nomor()
         ]);
+    }
+
+    public function nomor()
+    {
+        $urutan = $this->db->get($this->table)->num_rows();
+
+        $urutan++;
+
+        $no_perkara = sprintf("%03s", $urutan);
+        $no_perkara .= '/PHS';
+        $no_perkara .= '/' . date('m');
+        $no_perkara .= '/' . date('Y');
+
+        return $no_perkara;
     }
 
     public function store()
     {
+        $waktu_tunggu = date('Y-m-d');
+
         $data = [
             'no_perkara'     => $this->input->post('no_perkara', TRUE),
             'nama_terdakwa'  => $this->input->post('nama_terdakwa', TRUE),
@@ -81,6 +98,7 @@ class Penetapan_hs extends CI_Controller
             'file_hs'        => $this->_upload(),
             'status_hs'      => 'PROSES',
             'tujuan_hs'      => null,
+            'waktu_tunggu'   => date('Y-m-d', strtotime("$waktu_tunggu +7 day"))
         ];
 
         $this->db->insert($this->table, $data);
@@ -215,10 +233,11 @@ class Penetapan_hs extends CI_Controller
      */
     public function print($id)
     {
-        $update = [
-            'status_hs' => 'SELESAI',
-        ];
-        $this->db->where('id_hs', $id)->update($this->table, $update);
+        // $update = [
+        //     'status_hs' => 'SELESAI',
+        // ];
+
+        // $this->db->where('id_hs', $id)->update($this->table, $update);
 
         $data = $this->db->get_where($this->table, ['id_hs' => $id,])->row();
 
